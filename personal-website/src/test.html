@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Masonry Fallback</title>
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background-color: #90adc6;
+
+        /* flexbox centers vertically */
+        display: flex;
+        align-items: center; /* vertical centering */
+
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+          "Segoe UI Symbol";
+      }
+
+      .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+        opacity: 0.25;
+        transform: scale(1.065);
+      }
+
+      .masonry {
+        column-count: 4;
+        column-gap: 1rem;
+
+        width: 100%; /* flexible width */
+        max-width: 1250px; /* don’t grow beyond this */
+        margin: 0 auto; /* horizontal centering */
+        padding: 0 1rem; /* small gutter on edges */
+      }
+
+      .dark {
+        background-color: #343652;
+        color: #e9eaec;
+      }
+
+      .light {
+        background-color: #e9eaec;
+        color: #343652;
+      }
+
+      .masonry-item {
+        display: block;
+        margin: 0 0 1rem;
+        width: 100%;
+        border-radius: 20px;
+        padding: 1rem;
+        box-sizing: border-box;
+        text-align: center;
+        position: relative;
+      }
+
+      .one,
+      .two,
+      .three,
+      .four,
+      .five,
+      .six,
+      .seven,
+      .eight {
+        font-size: 1.5rem;
+        position: absolute;
+        left: 0;
+        bottom: 50px;
+        width: 100%;
+      }
+
+      .light:hover {
+        box-shadow: 5px 5px 0 #343652;
+        transition: all 0.1s;
+        translate: -5px -5px;
+      }
+
+      .dark:hover {
+        box-shadow: 5px 5px 0 #fad02b;
+        transition: all 0.1s;
+        translate: -5px -5px;
+      }
+
+      @media (max-width: 1000px) {
+        .masonry {
+          column-count: 2;
+        }
+      }
+
+      @media (max-width: 550px) {
+        .masonry {
+          column-count: 1;
+        }
+      }
+
+      .one p {
+        margin: 0;
+      }
+
+      .two p {
+        font-size: 2.5rem;
+        font-weight: 100;
+      }
+
+      .plus {
+        display: flex;
+        position: absolute;
+        font-size: 2rem;
+        top: 20px;
+        right: 20px;
+
+        justify-content: center;
+        align-items: top;
+
+        width: 40px;
+        height: 40px;
+        background-color: #fad02b;
+        border-radius: 50%;
+
+        color: #343652;
+      }
+
+      .plus:hover {
+        background-color: #f0c419;
+      }
+
+      .arrow {
+        height: 75px;
+        color: #e9eaec;
+      }
+    </style>
+  </head>
+  <body>
+    <video autoplay muted loop class="background">
+      <source src="Desmos.mp4" type="video/mp4" />
+    </video>
+    <!--  <img class="background" src="desmos-graph.svg" /> background image -->
+    <div class="masonry">
+      <div class="masonry-item light" style="height: 200px">
+        <div class="one">
+          <p style="font-weight: 600">Caleb Jennings</p>
+          <p style="font-weight: 300">Atlanta, GA</p>
+        </div>
+      </div>
+      <div class="masonry-item dark" style="height: 400px">
+        <div class="two">
+          <p>ABOUT</p>
+          <img class="arrow" src="login.png" />
+        </div>
+      </div>
+      <div class="masonry-item dark" style="height: 300px">
+        <div class="plus">+</div>
+        <div class="three">
+          <p>Languages</p>
+        </div>
+      </div>
+      <div class="masonry-item light" style="height: 300px">
+        <div class="plus">+</div>
+        <div class="four">
+          <p>Tools/Libraries</p>
+        </div>
+      </div>
+      <div class="masonry-item light" style="height: 300px">
+        <div class="plus">+</div>
+        <div class="five">
+          <p>Projects</p>
+        </div>
+      </div>
+      <div class="masonry-item dark" style="height: 300px">
+        <div class="plus">+</div>
+        <div class="six">
+          <p>Experience</p>
+        </div>
+      </div>
+      <div class="masonry-item dark" style="height: 200px">
+        <div class="seven">
+          <p>Contact</p>
+        </div>
+      </div>
+      <div class="masonry-item light" style="height: 400px">
+        <div class="eight">
+          <p>IDK</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
