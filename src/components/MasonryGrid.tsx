@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Card from "./Card";
 import styles from "../styles/MasonryGrid.module.css";
 import { cards } from "../data/CardData";

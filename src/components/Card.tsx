@@ -1,6 +1,5 @@
 import styles from "../styles/Card.module.css";
-
-import type { CardData } from "./MasonryGrid";
+import type { CardData } from "../data/CardData";
 
 export default function Card({
   variant = "light",
