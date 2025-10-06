@@ -3,7 +3,7 @@ import type { CardData } from "../data/CardData";
 
 export default function Card({
   variant = "light",
-  height = 200,
+  height = 100,
   children,
   centered = false,
   extraMargin = false,

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, velocityPerSecond } from "framer-motion";
 import { useState } from "react";
 import Card from "./Card";
 import styles from "../styles/MasonryGrid.module.css";
@@ -13,8 +13,11 @@ export default function MasonryGrid() {
     return arr;
   }
 
+  const spring = { type: "spring", damping: 20, stiffness: 200 };
+
   const [order, setOrder] = useState(cards);
   const [activeIndex, setActiveIndex] = useState(null as number | null);
+  const [useGrid, setUseGrid] = useState(false);
 
   const referenceOrder = cards.map((item) => ({ ...item }));
 
@@ -22,6 +25,7 @@ export default function MasonryGrid() {
     if (activeIndex === index) {
       setOrder(cards.map((item) => ({ ...item }))); // reset
       setActiveIndex(null);
+      setUseGrid(false);
     } else {
       // find the original index of the clicked box
       const origIndex = referenceOrder.findIndex(
@@ -36,25 +40,31 @@ export default function MasonryGrid() {
 
       setOrder(newOrder);
       setActiveIndex(2 * Math.trunc(origIndex / 4) + Math.trunc(origIndex / 2));
+      setUseGrid(true);
     }
   };
 
   return (
-    <div className={styles.masonry}>
+    <div
+      className={
+        useGrid ? styles.gridContainerGrid : styles.gridContainerColumns
+      }
+    >
       {order.map((item: CardData, index: number) => (
         <motion.div
-          key={item.id} // use fixed id
+          key={item.id}
           layout
-          //transition={spring}
+          transition={spring}
           style={{
-            gridColumn: index === activeIndex ? "span 1" : "span 1",
+            gridColumn: index === activeIndex ? "span 3" : "span 1",
             gridRow: index === activeIndex ? "span 3" : "span 1",
+            height: useGrid ? "auto" : 150,
+            aspectRatio: useGrid ? "2 / 1" : "auto",
           }}
           onClick={() => handleClick(index)}
         >
           <Card
-            key={index}
-            height={item.height}
+            height={index === activeIndex ? 470 : 150}
             variant={item.variant}
             centered={item.centered}
             extraMargin={item.extraMargin}
