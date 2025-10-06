@@ -4,6 +4,7 @@ export type CardData = {
   children?: React.ReactNode;
   centered?: boolean;
   extraMargin?: boolean;
+  id?: number;
 };
 
 export const cards: CardData[] = [
@@ -17,22 +18,31 @@ export const cards: CardData[] = [
       </>
     ),
     centered: true,
+    id: 0,
   },
-  { height: 300, variant: "dark", children: <p>Languages</p> },
-  { height: 300, variant: "light", children: <p>Projects</p> },
+  { height: 300, variant: "dark", children: <p>Languages</p>, id: 1 },
+  { height: 300, variant: "light", children: <p>Projects</p>, id: 2 },
   {
     height: 200,
     variant: "dark",
     children: <p>Contact</p>,
     centered: true,
+    id: 3,
   },
-  { height: 400, variant: "dark", extraMargin: true, children: <p>ABOUT</p> },
-  { height: 300, variant: "light", children: <p>Tools/Libraries</p> },
-  { height: 300, variant: "dark", children: <p>Experience</p> },
+  {
+    height: 400,
+    variant: "dark",
+    extraMargin: true,
+    children: <p>ABOUT</p>,
+    id: 4,
+  },
+  { height: 300, variant: "light", children: <p>Tools/Libraries</p>, id: 5 },
+  { height: 300, variant: "dark", children: <p>Experience</p>, id: 6 },
   {
     height: 400,
     variant: "light",
     extraMargin: true,
     children: <p>Click Here!</p>,
+    id: 7,
   },
 ];
