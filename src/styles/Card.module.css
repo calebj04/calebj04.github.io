@@ -2,9 +2,7 @@
   border-radius: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
-
   width: 100%;
-  margin-bottom: 1rem;
   position: relative;
 }
 
@@ -45,5 +43,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+}
+
+.extraMargin {
+  margin-top: -100px;
 }

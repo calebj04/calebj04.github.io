@@ -6,10 +6,18 @@ export default function Card({
   height = 200,
   children,
   centered = false,
+  extraMargin = false,
 }: CardData) {
   return (
-    <div className={`${styles.card} ${styles[variant]}`} style={{ height }}>
-      <div className={`${styles.children} ${centered && styles.centered}`}>{children}</div>
+    <div
+      className={`${styles.card} ${extraMargin && styles.extraMargin} ${
+        styles[variant]
+      }`}
+      style={{ height }}
+    >
+      <div className={`${styles.children} ${centered && styles.centered}`}>
+        {children}
+      </div>
     </div>
   );
 }

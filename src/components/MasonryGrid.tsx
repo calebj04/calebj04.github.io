@@ -13,6 +13,7 @@ export default function MasonryGrid() {
           height={card.height}
           variant={card.variant}
           centered={card.centered}
+          extraMargin={card.extraMargin}
         >
           {card.children}
         </Card>
