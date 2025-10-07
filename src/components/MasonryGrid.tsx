@@ -58,16 +58,16 @@ export default function MasonryGrid() {
           style={{
             gridColumn: index === activeIndex ? "span 3" : "span 1",
             gridRow: index === activeIndex ? "span 3" : "span 1",
-            height: useGrid ? "auto" : 150,
+            height: useGrid ? "auto" : item.height,
             aspectRatio: useGrid ? "2 / 1" : "auto",
           }}
           onClick={() => handleClick(index)}
         >
           <Card
-            height={index === activeIndex ? 470 : 150}
+            height={useGrid ? (index === activeIndex ? 470 : 150) : item.height}
             variant={item.variant}
             centered={item.centered}
-            extraMargin={item.extraMargin}
+            extraMargin={useGrid ? false : item.extraMargin}
           >
             {item.children}
           </Card>
