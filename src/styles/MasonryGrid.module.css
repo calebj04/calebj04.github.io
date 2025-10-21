@@ -1,14 +1,6 @@
 .gridContainerColumns {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 1rem;
-  width: 80%;
-}
-
-
-.gridContainerGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 300px);
-  grid-auto-rows: min-content;
+  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
+  width: 80%;
 }
