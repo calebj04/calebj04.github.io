@@ -14,13 +14,19 @@ export default function MasonryGrid() {
     arr.splice(target, 0, value);
     return arr;
   }
+
+  // Spring transition for layout changes
   const spring: Partial<Transition> = {
     type: "spring",
     damping: 20,
     stiffness: 200,
   };
+
+  // State for current order of cards and active index
   const [order, setOrder] = useState(cards);
   const [activeIndex, setActiveIndex] = useState(null as number | null);
+
+  const collapsed = activeIndex == null;
 
   const handleClick = (index: number) => {
     if (activeIndex === index) {
@@ -49,26 +55,24 @@ export default function MasonryGrid() {
           layout
           transition={spring}
           style={{
-            //margin: "0.5rem",
             gridColumn: index === activeIndex ? "span 3" : "span 1",
             gridRow: index === activeIndex ? "span 3" : "span 1",
-            gridAutoRows: "minmax(100px, auto)",
           }}
           onClick={() => handleClick(index)}
         >
           <Card
             height={
-              activeIndex !== null
-                ? index === activeIndex
-                  ? "100%"
-                  : 150
-                : item.height
+              collapsed ? item.height : index === activeIndex ? "100%" : 150
             }
             variant={item.variant}
-            centered={activeIndex !== null ? true : item.centered}
-            extraMargin={activeIndex !== null ? false : item.extraMargin}
+            centered={collapsed ? item.centered : true}
+            extraMargin={collapsed ? item.extraMargin : false}
           >
-            {item.children}
+            {collapsed
+              ? item.children
+              : index === activeIndex
+              ? "poop"
+              : item.children}
           </Card>
         </motion.div>
       ))}

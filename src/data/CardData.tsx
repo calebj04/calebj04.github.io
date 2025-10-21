@@ -1,6 +1,6 @@
 export type CardData = {
   variant?: "light" | "dark";
-  height?: number;
+  height?: number | string;
   children?: React.ReactNode;
   centered?: boolean;
   extraMargin?: boolean;
