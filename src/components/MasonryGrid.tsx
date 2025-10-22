@@ -1,10 +1,11 @@
-import { motion } from "framer-motion";
-import type { Transition } from "framer-motion";
+// import { motion } from "framer-motion";
+// import type { Transition } from "framer-motion";
 import { useState } from "react";
 import Card from "./Card";
 import styles from "../styles/MasonryGrid.module.css";
 import { cards } from "../data/CardData";
 import type { CardData } from "../data/CardData";
+import { ExpandedCardData } from "../data/ExpandedCardData";
 
 export default function MasonryGrid() {
   // Reorder array to move clicked item to target position
@@ -16,11 +17,11 @@ export default function MasonryGrid() {
   }
 
   // Spring transition for layout changes
-  const spring: Partial<Transition> = {
-    type: "spring",
-    damping: 20,
-    stiffness: 200,
-  };
+  // const spring: Partial<Transition> = {
+  //   type: "spring",
+  //   damping: 20,
+  //   stiffness: 200,
+  // };
 
   // State for current order of cards and active index
   const [order, setOrder] = useState(cards);
@@ -50,10 +51,10 @@ export default function MasonryGrid() {
   return (
     <div className={styles.gridContainerColumns}>
       {order.map((item: CardData, index: number) => (
-        <motion.div
+        <div //motion div
           key={item.id}
-          layout
-          transition={spring}
+          // layout
+          // transition={spring}
           style={{
             gridColumn: index === activeIndex ? "span 3" : "span 1",
             gridRow: index === activeIndex ? "span 3" : "span 1",
@@ -71,10 +72,10 @@ export default function MasonryGrid() {
             {collapsed
               ? item.children
               : index === activeIndex
-              ? "poop"
+              ? ExpandedCardData[item.id!]
               : item.children}
           </Card>
-        </motion.div>
+        </div> //motion div
       ))}
     </div>
   );
