@@ -9,11 +9,11 @@ import ClickHere from "./expanded_data/ClickHere";
 
 export const ExpandedCardData = [
   <CalebJennings />,
-  <About />,
   <Languages />,
-  <ToolsLibraries />,
   <Projects />,
-  <Experience />,
   <Contact />,
+  <About />,
+  <ToolsLibraries />,
+  <Experience />,
   <ClickHere />,
 ];

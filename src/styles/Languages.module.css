@@ -1,0 +1,9 @@
+.svgStyle {
+  margin: 0.5rem;
+  filter: invert(92%) sepia(2%) saturate(80%) hue-rotate(180deg)
+    brightness(102%) contrast(95%);
+}
+
+.svgStyle:hover {
+  scale: 1.1;
+}

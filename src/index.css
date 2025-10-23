@@ -8,10 +8,10 @@
   color: var(--primary-text-color);
 
   --background-color: #90adc6;
-  --primary-color: #e9eaec;
+  --primary-color: #eaebec;
   --primary-text-color: #333652;
   --secondary-color: #333652;
-  --secondary-text-color: #e9eaec;
+  --secondary-text-color: #eaebec;
   --accent-color: #fad02c;
 
   font-synthesis: none;
