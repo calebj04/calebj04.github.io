@@ -38,16 +38,17 @@ export default function Languages() {
     >
       {icons.map((icon, index) => (
         <motion.img
+          initial={{ opacity: 0, y: 20 }}
           key={index}
           src={icon}
           className={styles.svgStyle}
           onClick={(e) => handleClick(e, index)}
           animate={
             activeStates[index]
-              ? { x: -100, rotate: 360 }
-              : { x: 0, rotate: 0 }
+              ? { opacity: 1, x: -100, y: 0, rotate: 360 }
+              : {opacity: 1, x: 0, y: 0, rotate: 0 }
           }
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5,  delay: index * 0.1}}
           style={{ cursor: "pointer" }}
         />
       ))}

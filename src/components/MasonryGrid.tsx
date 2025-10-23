@@ -1,5 +1,5 @@
-// import { motion } from "framer-motion";
-// import type { Transition } from "framer-motion";
+import { motion } from "framer-motion";
+import type {Transition } from "framer-motion";
 import { useState } from "react";
 import Card from "./Card";
 import styles from "../styles/MasonryGrid.module.css";
@@ -8,20 +8,19 @@ import type { CardData } from "../data/CardData";
 import { ExpandedCardData } from "../data/ExpandedCardData";
 
 export default function MasonryGrid() {
-  // Reorder array to move clicked item to target position
-  function reorder_array(arr: Array<CardData>, index: number) {
+  function reorderArray(array: Array<CardData>, index: number) {
     const target = 2 * Math.trunc(index / 4) + Math.trunc(index / 2);
-    const [value] = arr.splice(index, 1);
-    arr.splice(target, 0, value);
-    return arr;
+    const [value] = array.splice(index, 1);
+    array.splice(target, 0, value);
+    return array;
   }
 
   // Spring transition for layout changes
-  // const spring: Partial<Transition> = {
-  //   type: "spring",
-  //   damping: 20,
-  //   stiffness: 200,
-  // };
+  const spring: Partial<Transition> = {
+    type: "spring",
+    damping: 18,
+    stiffness: 200,
+  };
 
   // State for current order of cards and active index
   const [order, setOrder] = useState(cards);
@@ -34,11 +33,11 @@ export default function MasonryGrid() {
       setOrder(cards.map((item) => ({ ...item }))); // reset
       setActiveIndex(null);
     } else {
-      // find the original index of the clicked box
+      // find index of clicked box
       const origIndex = cards.findIndex((item) => item.id === order[index].id);
 
-      // make a fresh copy of initialOrder
-      const newOrder = reorder_array(
+      // create new order
+      const newOrder = reorderArray(
         cards.map((item) => ({ ...item })),
         origIndex
       );
@@ -51,10 +50,10 @@ export default function MasonryGrid() {
   return (
     <div className={styles.gridContainerColumns}>
       {order.map((item: CardData, index: number) => (
-        <div //motion div
+        <motion.div
           key={item.id}
-          // layout
-          // transition={spring}
+          layout
+          transition={spring}
           style={{
             gridColumn: index === activeIndex ? "span 3" : "span 1",
             gridRow: index === activeIndex ? "span 3" : "span 1",
@@ -69,13 +68,17 @@ export default function MasonryGrid() {
             centered={collapsed ? item.centered : true}
             extraMargin={collapsed ? item.extraMargin : false}
           >
-            {collapsed
-              ? item.children
-              : index === activeIndex
-              ? ExpandedCardData[item.id!]
-              : item.children}
+            <motion.div layout
+            initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 0.3}}
+            >
+              {collapsed
+                ? item.children
+                : index === activeIndex
+                ? ExpandedCardData[item.id!]
+                : item.children}
+            </motion.div>
           </Card>
-        </div> //motion div
+        </motion.div>
       ))}
     </div>
   );
