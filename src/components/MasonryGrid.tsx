@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import type {Transition } from "framer-motion";
+import type { Transition } from "framer-motion";
 import { useState } from "react";
 import Card from "./Card";
 import styles from "../styles/MasonryGrid.module.css";
@@ -18,7 +18,7 @@ export default function MasonryGrid() {
   // Spring transition for layout changes
   const spring: Partial<Transition> = {
     type: "spring",
-    damping: 18,
+    damping: 19,
     stiffness: 200,
   };
 
@@ -52,7 +52,7 @@ export default function MasonryGrid() {
       {order.map((item: CardData, index: number) => (
         <motion.div
           key={item.id}
-          layout
+          layout="position"
           transition={spring}
           style={{
             gridColumn: index === activeIndex ? "span 3" : "span 1",
@@ -68,8 +68,11 @@ export default function MasonryGrid() {
             centered={collapsed ? item.centered : true}
             extraMargin={collapsed ? item.extraMargin : false}
           >
-            <motion.div layout
-            initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 0.3}}
+            <motion.div
+              layout
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
             >
               {collapsed
                 ? item.children
