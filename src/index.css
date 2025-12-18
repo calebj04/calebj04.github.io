@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tailwindcss/preflight";
+@plugin "daisyui";
 
 @layer base {
   body {
