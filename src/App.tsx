@@ -1,9 +1,7 @@
+import Body from "./components/Body";
+
 function App() {
-  return (
-    <div className="App">
-      <h1 className="w-full flex justify-center text-xl">Hello world!</h1>
-    </div>
-  );
+  return <Body />;
 }
 
 export default App;
