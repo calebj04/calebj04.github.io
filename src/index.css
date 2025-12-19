@@ -1,9 +1,8 @@
 @import "tailwindcss";
-@import "tailwindcss/preflight";
 @plugin "daisyui";
 
 @layer base {
   body {
-    @apply bg-gray-900 min-h-screen;
+    @apply bg-gray-950 min-h-screen;
   }
 }
