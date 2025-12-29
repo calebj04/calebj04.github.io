@@ -1,84 +1,88 @@
 function Card() {
+  const roles = [
+    {
+      image: "public/images/home/web-programming.png",
+      alt: "Web Programming Icon",
+      title: "Full-Stack Developer",
+    },
+    {
+      image: "public/images/home/neural-net.png",
+      alt: "Neural Network Icon",
+      title: "Machine Learning Engineer",
+    },
+    {
+      image: "public/images/home/piano.png",
+      alt: "Piano Icon",
+      title: "Piano Composer",
+    },
+  ];
   return (
     <div
-      className="flex flex-col w-1/2 min-w-100 aspect-[1.618] rounded-xl
-      bg-[linear-gradient(45deg,#121521,#38476b,#b6192e,#ffc1ac_85%)]"
+      className="flex flex-col w-full max-w-2xl sm:aspect-[1.618] rounded-4xl overflow-hidden p-6
+      bg-[linear-gradient(45deg,#121521,#38476b,#b6192e,#ffc1ac_85%)] text-white shadow-2xl"
     >
-      <div className="grid grid-cols-[0.75fr_1fr_2fr] p-1 -mb-4 z-10">
-        <div>
-          <img className="rounded-full" src="public/images/home/pfp.jpg"></img>
+      {/* Header Section */}
+      <div className="grid grid-cols-[auto_1fr_auto] gap-4 items-start -mb-8 z-10">
+        {/* Profile Pic */}
+        <div className="w-32 h-32 rounded-full overflow-hidden border-2 border-white/20 shadow-lg">
+          <img
+            className="w-full h-full object-cover"
+            src="public/images/home/pfp.jpg"
+            alt="Caleb"
+          />
         </div>
-        <div className="flex flex-col items-center whitespace-nowrap">
-          <p className="text-white font-extralight text-[clamp(1rem,2cqw,1.5rem)] leading-none">
+
+        {/* Name and Title */}
+        <div className="flex flex-col pt-2">
+          <h1 className="text-2xl font-light leading-none tracking-tight">
             Caleb Jennings
-          </p>
-          <p className="text-gray-300 font-extralight text-[clamp(0.75rem,1.5cqw,1.125rem)] leading-tight">
+          </h1>
+          <p className="text-lg text-gray-300 font-extralight">
             Software Engineer
           </p>
         </div>
-        <div className="justify-self-end h-1/2 grid grid-cols-2 grid-rows-2 gap-1">
-          <button className="flex items-center justify-center bg-white opacity-90 text-black text-lg font-extralight p-2 rounded-xl">
-            <span className="hidden lg:inline">Experience</span>
-            <span className="inline lg:hidden">Exp</span>
-          </button>
-          <button className="flex items-center justify-center bg-white opacity-90 text-black text-lg font-extralight p-2 rounded-xl">
-            <span className="hidden lg:inline">Projects</span>
-            <span className="inline lg:hidden">Prj</span>
-          </button>
-          <button className="flex items-center justify-center bg-white opacity-90 text-black text-lg font-extralight p-2 rounded-xl">
-            <span className="hidden lg:inline">Skills</span>
-            <span className="inline lg:hidden">Skl</span>
-          </button>
-          <button className="flex items-center justify-center bg-white opacity-90 text-black text-lg font-extralight p-2 rounded-xl">
-            <span className="hidden lg:inline">About</span>
-            <span className="inline lg:hidden">Abt</span>
-          </button>
+
+        {/* Navigation Buttons */}
+        <div className="grid grid-cols-2 gap-2">
+          {["Experience", "Projects", "Skills", "About"].map((text) => (
+            <button
+              key={text}
+              className="bg-white/90 text-black px-4 py-1.5 rounded-xl text-sm font-medium hover:scale-110 transition-transform cursor-pointer shadow-sm"
+            >
+              {text}
+            </button>
+          ))}
         </div>
       </div>
-      <div className="flex justify-center h-3/5 -mb-2">
+
+      {/* Center Featured Box */}
+
+      <div className="mt-auto mb-4 flex justify-center">
         <div
-          className="w-7/8 bg-[radial-gradient(circle_at_0%_0%,#121521,#38476b,#b6192e,#ffc1ac)]
- shadow-[0_0_0_6px_rgba(0,0,0,0.25)] rounded-xl"
+          className="w-[92%] bg-linear-to-br from-black/40 to-transparent backdrop-blur-sm 
+    border border-white/10 shadow-2xl rounded-3xl p-8"
         >
-          <div className="flex flex-col justify-between h-full p-6 text-[clamp(0.75rem,1.5cqw,1.125rem)]">
-            <div className="flex items-center h-1/4 gap-4">
-              <img
-                className="h-full invert"
-                src="public/images/home/web-programming.png"
-              ></img>
-              <p>Full-Stack Developer</p>
-            </div>
-            <div className="flex items-center h-1/4 gap-4">
-              <img
-                className="h-full invert"
-                src="public/images/home/neural-net.png"
-              ></img>
-              <p>Machine Learning Engineer</p>
-            </div>
-            <div className="flex items-center h-1/4 gap-4">
-              <img
-                className="h-full invert"
-                src="public/images/home/piano.png"
-              ></img>
-              <p>Piano Composer</p>
-            </div>
+          <div className="flex flex-col gap-6">
+            {roles.map((role, index) => (
+              <div key={index} className="flex items-center gap-5">
+                <img className="h-10 invert" src={role.image} alt={role.alt} />
+                <p className="text-xl font-light">{role.title}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
-      <div className="flex justify-end gap-2 p-1 h-1/8">
-        <img
-          className="h-full invert"
-          src="public/images/home/github.png"
-        ></img>
-        <img
-          className="h-full invert"
-          src="public/images/home/linkedin.png"
-        ></img>
-        <img className="h-full invert" src="public/images/home/email.png"></img>
-        <img
-          className="h-full invert"
-          src="public/images/home/resume.png"
-        ></img>
+
+      {/* Footer Socials */}
+      <div className="flex justify-end gap-4 items-center -mt-8">
+        {["github", "linkedin", "email", "resume"].map((icon) => (
+          <img
+            key={icon}
+            className="h-10 invert opacity-90 hover:opacity-100 hover:scale-110 transition-all cursor-pointer"
+            src={`public/images/home/${icon}.png`}
+            alt={icon}
+          />
+        ))}
       </div>
     </div>
   );
