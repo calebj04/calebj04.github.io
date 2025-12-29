@@ -16,20 +16,20 @@ function Card() {
             Software Engineer
           </p>
         </div>
-        <div className="justify-self-end h-3/5 grid grid-cols-2 grid-rows-2 gap-1">
-          <button className="flex items-center justify-center bg-white opacity-80 text-black font-extralight p-2 rounded-xl">
+        <div className="justify-self-end h-1/2 grid grid-cols-2 grid-rows-2 gap-1">
+          <button className="flex items-center justify-center bg-white opacity-90 text-black text-lg font-extralight p-2 rounded-xl">
             <span className="hidden lg:inline">Experience</span>
             <span className="inline lg:hidden">Exp</span>
           </button>
-          <button className="flex items-center justify-center bg-white opacity-80 text-black font-extralight p-2 rounded-xl">
+          <button className="flex items-center justify-center bg-white opacity-90 text-black text-lg font-extralight p-2 rounded-xl">
             <span className="hidden lg:inline">Projects</span>
             <span className="inline lg:hidden">Prj</span>
           </button>
-          <button className="flex items-center justify-center bg-white opacity-80 text-black font-extralight p-2 rounded-xl">
+          <button className="flex items-center justify-center bg-white opacity-90 text-black text-lg font-extralight p-2 rounded-xl">
             <span className="hidden lg:inline">Skills</span>
             <span className="inline lg:hidden">Skl</span>
           </button>
-          <button className="flex items-center justify-center bg-white opacity-80 text-black font-extralight p-2 rounded-xl">
+          <button className="flex items-center justify-center bg-white opacity-90 text-black text-lg font-extralight p-2 rounded-xl">
             <span className="hidden lg:inline">About</span>
             <span className="inline lg:hidden">Abt</span>
           </button>
@@ -66,10 +66,19 @@ function Card() {
         </div>
       </div>
       <div className="flex justify-end gap-2 p-1 h-1/8">
-        <img className="h-full invert" src="public/images/home/github.png"></img>
-        <img className="h-full invert" src="public/images/home/linkedin.png"></img>
+        <img
+          className="h-full invert"
+          src="public/images/home/github.png"
+        ></img>
+        <img
+          className="h-full invert"
+          src="public/images/home/linkedin.png"
+        ></img>
         <img className="h-full invert" src="public/images/home/email.png"></img>
-        <img className="h-full invert" src="public/images/home/resume.png"></img>
+        <img
+          className="h-full invert"
+          src="public/images/home/resume.png"
+        ></img>
       </div>
     </div>
   );
