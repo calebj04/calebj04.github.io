@@ -1,7 +1,7 @@
-import Body from "./components/Body";
+import Pages from "./components/Pages";
 
 function App() {
-  return <Body />;
+  return <Pages />;
 }
 
 export default App;
