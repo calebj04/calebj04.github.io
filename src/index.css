@@ -3,6 +3,6 @@
 
 @layer base {
   body {
-    @apply bg-gray-950 min-h-screen;
+    @apply bg-[#121521] min-h-screen;
   }
 }
