@@ -1,3 +1,5 @@
+import NavigationButtons from "./NavigationButtons";
+
 function Card() {
   return (
     <div className="relative w-full max-w-2xl rounded-[2.5rem] overflow-hidden p-8">
@@ -9,18 +11,8 @@ function Card() {
         <div className="h-43 sm:h-24 sm:flex items-start justify-between gap-4">
           {/* Title */}
           <div className="h-26 flex items-center gap-6"></div>
-
           {/* Navigation Buttons */}
-          <div className="grid grid-cols-2 gap-2">
-            {["Experience", "Projects", "Skills", "About"].map((text) => (
-              <button
-                key={text}
-                className="bg-black/20 text-white/90 border border-white/10 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wide hover:bg-white hover:text-[#b6192e] hover:scale-105 transition-all duration-300 shadow-sm"
-              >
-                {text}
-              </button>
-            ))}
-          </div>
+          {NavigationButtons()}
         </div>
 
         {/* Body */}
