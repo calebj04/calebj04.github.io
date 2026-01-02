@@ -15,7 +15,7 @@ function Experience() {
     <div className="flex flex-col h-full justify-center px-6 py-4 group">
       <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#ffc1ac]/10 blur-[50px] rounded-full pointer-events-none" />
 
-      {/* Organization + Year */}
+      {/* Header + Year */}
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-3xl font-bold tracking-tight text-white bg-clip-text drop-shadow-sm">
           Hack4Impact
@@ -42,6 +42,7 @@ function Experience() {
 
   const footer: ReactNode = (
     <div className="w-full flex justify-between items-end">
+      {/* Link */}
       <div className="flex gap-1.5 pb-1">
         <a
           href="https://github.com/Emory-Hack4Impact/Odyssey"
@@ -49,14 +50,11 @@ function Experience() {
           className="flex items-center gap-1 text-sm font-mono tracking-wide text-white opacity-70 hover:opacity-100 transition-opacity"
         >
           Odyssey
-          <img
-            className="h-3 w-3 invert"
-            src="public/images/redirect.png"
-          />
+          <img className="h-3 w-3 invert" src="public/images/redirect.png" />
         </a>
       </div>
 
-      {/* Role Metadata */}
+      {/* Role Information */}
       <div className="text-right opacity-70 hover:opacity-100 transition-opacity">
         <p className="text-[10px] uppercase tracking-[0.2em] font-mono text-[#ffc1ac] mb-0.5">
           Current Role
