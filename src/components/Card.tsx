@@ -6,9 +6,9 @@ function Card() {
       {/* Content Wrapper */}
       <div className="relative">
         {/* Header */}
-        <div className="h-24 sm:flex items-start justify-between gap-4">
+        <div className="h-43 sm:h-24 sm:flex items-start justify-between gap-4">
           {/* Title */}
-          <div className="flex items-center gap-6"></div>
+          <div className="h-26 flex items-center gap-6"></div>
 
           {/* Navigation Buttons */}
           <div className="grid grid-cols-2 gap-2">

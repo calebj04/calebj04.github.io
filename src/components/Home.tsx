@@ -24,9 +24,9 @@ function Home() {
       {/* Content Wrapper */}
       <div className="relative">
         {/* Header */}
-        <div className="h-24 sm:flex items-start justify-between gap-4">
-          {/* Profile Pic + Name */}
-          <div className="flex items-center gap-6">
+        <div className="h-43 sm:h-24 sm:flex items-start justify-between gap-4">
+          {/* Title */}
+          <div className="h-26 flex items-center gap-6">
             <div className="max-sm:mb-2 w-24 h-24 rounded-full overflow-hidden border-2 border-white/20 shadow-2xl">
               <img
                 className="h-full w-full object-cover transform hover:scale-110 transition-transform duration-700 ease-out"
