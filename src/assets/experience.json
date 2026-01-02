@@ -1,0 +1,29 @@
+[
+  {
+    "org": "Hack4Impact",
+    "year": "2025-Present",
+    "desc": "Developed full-stack features for Odyssey Family Counseling Center’s internal HR employee management platform. Collaborated with an 8-person engineering team on system design and user-driven iteration across 12 sprints to implement complex dashboard requirements for this mission-driven nonprofit.",
+    "title": "Oddyssey",
+    "url": "https://github.com/Emory-Hack4Impact/Odyssey",
+    "stat": "Current Role",
+    "pos": "Project Engineer"
+  },
+  {
+    "org": "Emory University",
+    "year": "2024-Present",
+    "desc": "Assisted an average 10+ clients in hardware tech support, facilitating poster printing, configuring Mac workstations, and troubleshooting Crestron displays. Continually ensured cleanliness of study spaces allowing for a more efficient and enjoyable work environment.",
+    "title": "Cox Computing Center",
+    "url": "https://ats.emory.edu/sdl/computing-center/index.html",
+    "stat": "Current Role",
+    "pos": "Technology Consultant"
+  },
+  {
+    "org": "Camp Westminster",
+    "year": "2023-2025",
+    "desc": "Guided and mentored 10 senior counselors responsible for supporting over 800 campers throughout the summer. Collaborated with 3 head staff members to lead 50+ counselors and coordinate operations across 7 weeks of camp",
+    "title": "Camp Westminster",
+    "url": "https://www.campwestminster.org/",
+    "stat": "Previous Role",
+    "pos": "Head Senior Counselor"
+  }
+]

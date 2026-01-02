@@ -1,7 +1,10 @@
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import Card from "../Card";
+import experience from "../../assets/experience.json";
 
 function Experience() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   const title: ReactNode = (
     <div className="group flex flex-col">
       <h1 className="text-4xl font-light tracking-tighter text-white drop-shadow-lg">
@@ -18,24 +21,67 @@ function Experience() {
       {/* Header + Year */}
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-3xl font-bold tracking-tight text-white bg-clip-text drop-shadow-sm">
-          Hack4Impact
+          {experience[currentIndex].org}
         </h2>
         <span className="px-3 py-1 bg-white/10 rounded-lg text-[10px] font-mono tracking-wider text-[#ffc1ac] border border-white/5 shadow-inner">
-          2025
+          {experience[currentIndex].year}
         </span>
       </div>
 
       {/* Description */}
       <div>
         <p className="text-sm md:text-[15px] font-light leading-relaxed text-white/90 border-l-2 border-[#ffc1ac]/50 pl-4">
-          Developed full-stack features for Odyssey Family Counseling Center’s
-          internal HR employee management platform.
-          <span className="block mt-2 opacity-80 text-xs md:text-sm leading-relaxed">
-            Collaborated with an 8-person engineering team on system design and
-            user-driven iteration across 12 sprints to implement complex
-            dashboard requirements for this mission-driven nonprofit.
-          </span>
+          {experience[currentIndex].desc}
         </p>
+      </div>
+      {/* Navigation Arrows*/}
+      <div className="flex absolute bottom-1 right-1 justify-end gap-3 items-center pb-1">
+        <button
+          onClick={
+            () => {
+              setCurrentIndex(
+                (prev) => (prev - 1 + experience.length) % experience.length
+              );
+            } // previous
+          }
+          className="text-white/50 hover:text-[#ffc1ac] transition-colors p-1"
+          aria-label="Previous experience"
+        >
+          <svg
+            className="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+        </button>
+        <button
+          onClick={() => {
+            setCurrentIndex((prev) => (prev + 1) % experience.length); // next
+          }}
+          className="text-white/50 hover:text-[#ffc1ac] transition-colors p-1"
+          aria-label="Next experience"
+        >
+          <svg
+            className="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </button>
       </div>
     </div>
   );
@@ -45,11 +91,11 @@ function Experience() {
       {/* Link */}
       <div className="flex gap-1.5 pb-1">
         <a
-          href="https://github.com/Emory-Hack4Impact/Odyssey"
+          href={experience[currentIndex].url}
           target="_blank"
           className="flex items-center gap-1 text-sm font-mono tracking-wide text-white opacity-70 hover:opacity-100 transition-opacity"
         >
-          Odyssey
+          {experience[currentIndex].title}
           <img className="h-3 w-3 invert" src="public/images/redirect.png" />
         </a>
       </div>
@@ -57,10 +103,10 @@ function Experience() {
       {/* Role Information */}
       <div className="text-right opacity-70 hover:opacity-100 transition-opacity">
         <p className="text-[10px] uppercase tracking-[0.2em] font-mono text-[#ffc1ac] mb-0.5">
-          Current Role
+          {experience[currentIndex].stat}
         </p>
         <p className="text-sm font-medium tracking-wide text-white drop-shadow-md">
-          Project Engineer
+          {experience[currentIndex].pos}
         </p>
       </div>
     </div>
