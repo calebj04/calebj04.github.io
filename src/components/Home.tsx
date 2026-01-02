@@ -23,8 +23,8 @@ function Home() {
 
       {/* Content Wrapper */}
       <div className="relative">
-        {/* Header Section */}
-        <div className="sm:flex items-start justify-between gap-4">
+        {/* Header */}
+        <div className="h-24 sm:flex items-start justify-between gap-4">
           {/* Profile Pic + Name */}
           <div className="flex items-center gap-6">
             <div className="max-sm:mb-2 w-24 h-24 rounded-full overflow-hidden border-2 border-white/20 shadow-2xl">
@@ -58,10 +58,10 @@ function Home() {
           </div>
         </div>
 
-        {/* Center Featured Box */}
+        {/* Body */}
         <div className="my-2">
           <div
-            className="bg-linear-to-b from-white/10 to-black/20 backdrop-blur-xl 
+            className="h-55 bg-linear-to-b from-white/10 to-black/20 backdrop-blur-xl 
             border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] rounded-3xl overflow-hidden"
           >
             <div className="flex flex-col">
@@ -102,8 +102,8 @@ function Home() {
           </div>
         </div>
 
-        {/* Footer Socials */}
-        <div className="flex justify-between items-end pt-2 shrink-0">
+        {/* Footer */}
+        <div className="h-10 flex justify-between items-end pt-2 shrink-0">
           <span className="text-xs text-white/40 font-light">Atlanta, GA</span>
 
           <div className="flex gap-4">

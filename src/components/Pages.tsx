@@ -1,4 +1,5 @@
 import Home from "./Home";
+import Card from "./Card";
 import Experience from "./Experience";
 
 function Pages() {
