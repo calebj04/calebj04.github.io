@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Home() {
   const roles = [
     {
@@ -48,12 +50,13 @@ function Home() {
           {/* Navigation Buttons */}
           <div className="grid grid-cols-2 gap-2">
             {["Experience", "Projects", "Skills", "About"].map((text) => (
-              <button
+              <Link
                 key={text}
-                className="bg-black/20 text-white/90 border border-white/10 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wide hover:bg-white hover:text-[#b6192e] hover:scale-105 transition-all duration-300 shadow-sm"
+                to={`/${text.toLowerCase()}`}
+                className="bg-black/20 text-white/90 border border-white/10 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wide hover:bg-white hover:text-[#b6192e] hover:scale-105 transition-all duration-300 shadow-sm flex items-center justify-center"
               >
                 {text}
-              </button>
+              </Link>
             ))}
           </div>
         </div>
