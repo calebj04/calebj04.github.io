@@ -1,22 +1,4 @@
 function Card() {
-  const roles = [
-    {
-      image: "public/images/home/web-programming.png",
-      alt: "Web Programming Icon",
-      title: "Full-Stack Developer",
-    },
-    {
-      image: "public/images/home/neural-net.png",
-      alt: "Neural Network Icon",
-      title: "Machine Learning Engineer",
-    },
-    {
-      image: "public/images/home/piano.png",
-      alt: "Piano Icon",
-      title: "Piano Composer",
-    },
-  ];
-
   return (
     <div className="relative w-full max-w-2xl rounded-[2.5rem] overflow-hidden p-8">
       <div className="absolute inset-0 bg-[linear-gradient(45deg,#121521_0%,#38476b_40%,#b6192e_80%,#ffc1ac_100%)]" />
