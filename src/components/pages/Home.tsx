@@ -4,17 +4,17 @@ import Card from "../Card";
 function Home() {
   const roles = [
     {
-      image: "public/images/home/web-programming.png",
+      image: "/images/home/web-programming.png",
       alt: "Web Programming Icon",
       title: "Full-Stack Developer",
     },
     {
-      image: "public/images/home/neural-net.png",
+      image: "/images/home/neural-net.png",
       alt: "Neural Network Icon",
       title: "Machine Learning Engineer",
     },
     {
-      image: "public/images/home/piano.png",
+      image: "/images/home/piano.png",
       alt: "Piano Icon",
       title: "Piano Composer",
     },
@@ -22,21 +22,23 @@ function Home() {
 
   const title: ReactNode = (
     <>
-      <div className="max-sm:mb-2 w-24 h-24 rounded-full overflow-hidden border-2 border-white/20 shadow-2xl">
-        <img
-          className="h-full w-full object-cover transform hover:scale-110 transition-transform duration-700 ease-out"
-          src="public/images/home/pfp.jpg"
-          alt="Caleb"
-        />
-      </div>
+      <div className="h-26 flex items-center gap-6">
+        <div className="max-sm:mb-2 w-24 h-24 rounded-full overflow-hidden border-2 border-white/20 shadow-2xl">
+          <img
+            className="h-full w-full object-cover transform hover:scale-110 transition-transform duration-700 ease-out"
+            src="/images/home/pfp.jpg"
+            alt="Caleb"
+          />
+        </div>
 
-      <div className="space-y-1">
-        <h1 className="text-4xl font-light leading-none tracking-tighter drop-shadow-md whitespace-nowrap">
-          Caleb Jennings
-        </h1>
-        <p className="text-sm font-mono tracking-widest text-[#ffc1ac] uppercase opacity-90">
-          Software Engineer
-        </p>
+        <div className="space-y-1">
+          <h1 className="text-4xl font-light leading-none tracking-tighter drop-shadow-md whitespace-nowrap">
+            Caleb Jennings
+          </h1>
+          <p className="text-sm font-mono tracking-widest text-[#ffc1ac] uppercase opacity-90">
+            Software Engineer
+          </p>
+        </div>
       </div>
     </>
   );
@@ -90,7 +92,7 @@ function Home() {
           <div key={icon} className="group/icon">
             <img
               className="h-8 w-8 invert opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer"
-              src={`public/images/home/${icon}.png`}
+              src={`/images/home/${icon}.png`}
               alt={icon}
             />
           </div>

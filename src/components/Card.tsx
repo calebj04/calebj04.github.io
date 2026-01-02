@@ -18,7 +18,7 @@ function Card({ title, body, footer }: CardProps) {
           {/* Header */}
           <div className="h-43 sm:h-24 sm:flex items-start justify-between gap-4">
             {/* Title */}
-            <div className="h-26 flex items-center gap-6">{title}</div>
+            {title}
             {/* Navigation Buttons */}
             {NavigationButtons()}
           </div>
