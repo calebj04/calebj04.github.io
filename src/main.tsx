@@ -3,21 +3,22 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 
-import Home from "./components/Home.tsx";
-import Card from "./components/Card.tsx";
+import Home from "./components/pages/Home";
+import Experience from "./components/pages/Experience";
+import Projects from "./components/pages/Projects";
+import Skills from "./components/pages/Skills";
+import About from "./components/pages/About";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
-  { path: "/experience", element: <Card /> },
-  { path: "/projects", element: <Card /> },
-  { path: "/skills", element: <Card /> },
-  { path: "/about", element: <Card /> },
+  { path: "/experience", element: <Experience /> },
+  { path: "/projects", element: <Projects /> },
+  { path: "/skills", element: <Skills /> },
+  { path: "/about", element: <About /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <div className="w-screen h-screen flex justify-center items-center">
-    <React.StrictMode>
-      <RouterProvider router={router} />
-    </React.StrictMode>
-  </div>
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
 );
