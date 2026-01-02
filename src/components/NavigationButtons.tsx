@@ -25,7 +25,11 @@ function NavigationButtons() {
         <Link
           key={page.path}
           to={page.path}
-          className="bg-black/20 text-white/90 border border-white/10 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wide hover:bg-white hover:text-[#b6192e] hover:scale-105 transition-all duration-300 shadow-sm flex items-center justify-center"
+          className={`border border-white/10 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wide hover:bg-white hover:text-[#b6192e] hover:scale-105 transition-all duration-300 shadow-sm flex items-center justify-center ${
+            page.path === home.path
+              ? "bg-white text-[#b6192e]"
+              : "bg-black/20 text-white/90"
+          }`}
         >
           {page.label}
         </Link>

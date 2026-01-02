@@ -96,7 +96,7 @@ function Experience() {
           className="flex items-center gap-1 text-sm font-mono tracking-wide text-white opacity-70 hover:opacity-100 transition-opacity"
         >
           {experience[currentIndex].title}
-          <img className="h-3 w-3 invert" src="public/images/redirect.png" />
+          <img className="h-3 w-3 invert" src="/images/redirect.png" />
         </a>
       </div>
 
