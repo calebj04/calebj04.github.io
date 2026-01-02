@@ -15,7 +15,7 @@ function Experience() {
   );
 
   const body: ReactNode = (
-    <div className="flex flex-col h-full justify-center px-6 py-4 group">
+    <div className="flex flex-col h-full px-6 py-4 group">
       <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#ffc1ac]/10 blur-[50px] rounded-full pointer-events-none" />
 
       {/* Header + Year */}
