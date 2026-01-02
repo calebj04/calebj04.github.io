@@ -18,32 +18,25 @@ function Home() {
   ];
 
   return (
-    <div
-      className="group relative flex flex-col w-full max-w-2xl rounded-[2.5rem] overflow-hidden p-8
-      bg-[#121521] text-white shadow-2xl ring-1 ring-white/10 transition-all duration-500"
-    >
-      <div className="absolute inset-0 bg-[linear-gradient(45deg,#121521_0%,#38476b_40%,#b6192e_80%,#ffc1ac_100%)] opacity-90" />
-      <div className="absolute -top-20 -left-20 w-96 h-96 bg-[#38476b]/30 blur-[100px] rounded-full pointer-events-none mix-blend-screen" />
+    <div className="relative w-full max-w-2xl rounded-[2.5rem] overflow-hidden p-8">
+      <div className="absolute inset-0 bg-[linear-gradient(45deg,#121521_0%,#38476b_40%,#b6192e_80%,#ffc1ac_100%)]" />
 
       {/* Content Wrapper */}
-      <div className="relative z-10 flex flex-col h-full justify-between">
+      <div className="relative">
         {/* Header Section */}
         <div className="sm:flex items-start justify-between gap-4">
+          {/* Profile Pic + Name */}
           <div className="flex items-center gap-6">
-            {/* Profile Pic with Glow */}
-            <div className="relative">
-              <div className="max-sm:mb-2 w-24 h-24 rounded-full overflow-hidden border-2 border-white/20 shadow-2xl">
-                <img
-                  className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700 ease-out"
-                  src="public/images/home/pfp.jpg"
-                  alt="Caleb"
-                />
-              </div>
+            <div className="max-sm:mb-2 w-24 h-24 rounded-full overflow-hidden border-2 border-white/20 shadow-2xl">
+              <img
+                className="h-full w-full object-cover transform hover:scale-110 transition-transform duration-700 ease-out"
+                src="public/images/home/pfp.jpg"
+                alt="Caleb"
+              />
             </div>
 
-            {/* Name and Title */}
-            <div className="flex flex-col space-y-1">
-              <h1 className="text-4xl font-light leading-none tracking-tighter drop-shadow-md">
+            <div className="space-y-1">
+              <h1 className="text-4xl font-light leading-none tracking-tighter drop-shadow-md whitespace-nowrap">
                 Caleb Jennings
               </h1>
               <p className="text-sm font-mono tracking-widest text-[#ffc1ac] uppercase opacity-90">
@@ -57,7 +50,7 @@ function Home() {
             {["Experience", "Projects", "Skills", "About"].map((text) => (
               <button
                 key={text}
-                className="bg-black/20 text-white/90 border border-white/10 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wide hover:bg-white hover:text-[#b6192e] hover:scale-105 transition-all duration-300 shadow-sm whitespace-nowrap"
+                className="bg-black/20 text-white/90 border border-white/10 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wide hover:bg-white hover:text-[#b6192e] hover:scale-105 transition-all duration-300 shadow-sm"
               >
                 {text}
               </button>
@@ -66,9 +59,9 @@ function Home() {
         </div>
 
         {/* Center Featured Box */}
-        <div className="flex-1 min-h-0 flex items-center justify-center my-2">
+        <div className="my-2">
           <div
-            className="w-full bg-linear-to-b from-white/10 to-black/20 backdrop-blur-xl 
+            className="bg-linear-to-b from-white/10 to-black/20 backdrop-blur-xl 
             border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] rounded-3xl overflow-hidden"
           >
             <div className="flex flex-col">
@@ -115,9 +108,9 @@ function Home() {
 
           <div className="flex gap-4">
             {["github", "linkedin", "email", "resume"].map((icon) => (
-              <div key={icon} className="group/icon relative">
+              <div key={icon} className="group/icon">
                 <img
-                  className="relative h-8 w-8 invert opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer"
+                  className="h-8 w-8 invert opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer"
                   src={`public/images/home/${icon}.png`}
                   alt={icon}
                 />

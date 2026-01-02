@@ -18,7 +18,7 @@ function Home() {
   ];
   return (
     <div
-      className="flex flex-col w-full max-w-2xl sm:aspect-[1.618] rounded-4xl overflow-hidden p-6
+      className="flex flex-col w-full max-w-2xl sm:aspect-[1.618] rounded-[2.5rem] overflow-hidden p-8
       bg-[linear-gradient(45deg,#121521,#38476b,#b6192e,#ffc1ac_85%)] text-white shadow-2xl"
     >
       {/* Header Section */}
