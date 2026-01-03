@@ -1,42 +1,7 @@
 import { useState, type ReactNode } from "react";
-import Card from "../Card";
 import { skills, type SkillData } from "../../assets/skills";
-
-const SkillItem = ({
-  skill,
-  onEnter,
-  onLeave,
-}: {
-  skill: SkillData;
-  onEnter: () => void;
-  onLeave: () => void;
-}) => {
-  const [isAnimating, setIsAnimating] = useState(false);
-
-  const handleClick = () => {
-    setIsAnimating(true);
-  };
-
-  return (
-    <div
-      onClick={handleClick}
-      onMouseEnter={onEnter}
-      onMouseLeave={onLeave}
-      className={`
-        group/icon flex items-center justify-center
-        transition-transform duration-300 hover:scale-110 cursor-pointer
-        ${isAnimating ? "animate-[spin_0.8s_ease-in-out]" : ""}
-      `}
-      onAnimationEnd={() => setIsAnimating(false)}
-    >
-      <skill.Icon
-        className="w-15 h-15 text-white drop-shadow-md transition-colors duration-300"
-        onMouseEnter={(e) => (e.currentTarget.style.color = skill.color)}
-        onMouseLeave={(e) => (e.currentTarget.style.color = "white")}
-      />
-    </div>
-  );
-};
+import { SkillItem } from "../SkillItem";
+import Card from "../Card";
 
 function Skills() {
   const [hoveredSkill, setHoveredSkill] = useState<SkillData | null>(null);
@@ -69,20 +34,20 @@ function Skills() {
   const footer: ReactNode = (
     <>
       <div className="w-full flex justify-between items-end">
-        {/* Link */}
+        {/* Proficiency */}
         <div className="flex gap-1.5 pb-1">
           <p className="flex items-center gap-1 text-sm font-mono tracking-wide text-white opacity-70 hover:opacity-100 transition-opacity">
-            Proficiency: {hoveredSkill?.prof}%
+            Proficiency: {hoveredSkill?.prof ? hoveredSkill?.prof : "--"}%
           </p>
         </div>
 
-        {/* Role Information */}
+        {/* Language/Library */}
         <div className="text-right opacity-70 hover:opacity-100 transition-opacity">
           <p className="text-[10px] uppercase tracking-[0.2em] font-mono text-[#ffc1ac] mb-0.5">
             Langauge
           </p>
           <p className="text-sm font-medium tracking-wide text-white drop-shadow-md">
-            {hoveredSkill?.name}
+            {hoveredSkill?.name ? hoveredSkill.name : "*Hover over an icon*"}
           </p>
         </div>
       </div>
