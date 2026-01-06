@@ -175,10 +175,10 @@ function Projects() {
       </style>
       {/* Project Preview */}
       <div
-        className={`block absolute w-55 -left-64 -top-12 transition-all duration-500 ease-in-out ${
+        className={`block absolute w-55 -left-64 -top-12 transition-all duration-500 ease-in-out z-10 ${
           isClosed ? "hidden" : ""
         }
-          ${isExpanded ? "w-110 -left-6 z-10" : "w-55 -left-64 z-0"}`}
+          ${isExpanded ? "w-110 -left-6" : "w-55 -left-64"}`}
       >
         {/* Image Window */}
         <div
