@@ -9,13 +9,12 @@ function Projects() {
   const [isMinimized, setIsMinimized] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const handleClose = () => {
-    setIsClosed(true);
+  const handleOpenClose = () => {
+    setIsClosed(!isClosed);
     setIsMinimized(false);
     setIsExpanded(false);
     setShowPreview(false);
   };
-  const handleOpen = () => setIsClosed(false);
 
   const handleMinimize = () => {
     if (isExpanded) {
@@ -63,9 +62,9 @@ function Projects() {
           </h2>
           <span
             className="px-3 py-1 bg-white/10 rounded-lg text-[10px] font-mono tracking-wider text-[#ffc1ac] border border-white/5 shadow-inner hover:bg-white/20 cursor-pointer select-none"
-            onClick={handleOpen}
+            onClick={handleOpenClose}
           >
-            Open Preview
+            {showPreview ? "Close Preview" : "Open Preview"}
           </span>
         </div>
 
@@ -174,7 +173,7 @@ function Projects() {
           <div className="group h-6 bg-gray-100 border-b flex items-center px-3 gap-1.5">
             <div
               className="w-2.5 h-2.5 rounded-full bg-red-400/80 group-hover:bg-red-500 cursor-pointer"
-              onClick={handleClose}
+              onClick={handleOpenClose}
             ></div>
             <div
               className="w-2.5 h-2.5 rounded-full bg-yellow-400/80 group-hover:bg-yellow-500 cursor-pointer"
