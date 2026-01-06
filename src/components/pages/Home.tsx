@@ -1,22 +1,31 @@
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import Card from "../Card";
 
 function Home() {
+  const [activeRole, setActiveRole] = useState<number | null>(null);
+
+  const handleRoleClick = (index: number) => {
+    setActiveRole(activeRole === index ? null : index);
+  };
+
   const roles = [
     {
       image: "/images/home/web-programming.png",
       alt: "Web Programming Icon",
       title: "Full-Stack Developer",
+      text: "Worked for Project Emory",
     },
     {
       image: "/images/home/neural-net.png",
       alt: "Neural Network Icon",
       title: "Machine Learning Engineer",
+      text: "Completed Machine Learning, Deep Learning, & Data Mining",
     },
     {
       image: "/images/home/piano.png",
       alt: "Piano Icon",
       title: "Piano Composer",
+      text: "Listen to me on Spotify",
     },
   ];
 
@@ -49,7 +58,8 @@ function Home() {
         {roles.map((role, index) => (
           <div
             key={index}
-            className={`group/item flex items-center gap-4 p-3 transition-all duration-300 hover:bg-white/5 cursor-default
+            onClick={() => handleRoleClick(index)}
+            className={`group/item relative flex items-center gap-4 p-3 transition-all duration-300 hover:bg-white/5 cursor-pointer
                     ${
                       index !== roles.length - 1
                         ? "border-b border-white/5"
@@ -57,6 +67,16 @@ function Home() {
                     }
                   `}
           >
+            {/*Swipe Left For More Info*/}
+            <div
+              className={`absolute w-0 rounded-2xl -right-18 top-0 bottom-0 bg-[linear-gradient(45deg,#121521_0%,#38476b_40%,#b6192e_80%,#ffc1ac_100%)] z-20 transition-all duration-500 ${
+                activeRole === index ? "w-full" : ""
+              }`}
+            >
+              <div className="h-full flex items-center p-1 text-lg font-medium whitespace-nowrap">
+                {role.text}
+              </div>
+            </div>
             {/* Icon Container */}
             <div className="w-12 h-12 shrink-0 rounded-2xl bg-linear-to-br from-white/10 to-transparent border border-white/10 flex items-center justify-center group-hover/item:scale-110 group-hover/item:border-[#ffc1ac]/50 transition-all duration-300">
               <img
@@ -74,7 +94,16 @@ function Home() {
             </div>
 
             {/* Arrow Indicator on Hover */}
-            <div className="ml-auto opacity-0 group-hover/item:opacity-100 -translate-x-2 group-hover/item:translate-x-0 transition-all duration-300 text-[#ffc1ac]">
+            <div
+              className={`
+    ml-auto transition-all duration-500 
+    ${
+      activeRole === index
+        ? "opacity-0 -translate-x-130 text-[#ffc1ac]"
+        : "opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 group-hover/item:text-[#ffc1ac]"
+    }
+  `}
+            >
               →
             </div>
           </div>
