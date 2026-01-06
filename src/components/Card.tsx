@@ -18,11 +18,11 @@ function Card({ title, body, footer, extension }: CardProps) {
         {/* Content Wrapper */}
         <div className="relative">
           {/* Header */}
-          <div className="h-43 sm:h-24 sm:flex items-start justify-between gap-4">
+          <div className="sm:h-24 sm:flex items-start justify-between gap-4">
             {/* Title */}
-            {title}
+            <div className="h-26">{title}</div>
             {/* Navigation Buttons */}
-            {NavigationButtons()}
+            <div className="h-17">{NavigationButtons()}</div>
           </div>
 
           {/* Body */}
