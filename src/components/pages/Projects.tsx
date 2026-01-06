@@ -169,7 +169,7 @@ function Projects() {
         className={`block absolute w-55 -left-64 -top-12 transition-all duration-500 ease-in-out ${
           isClosed ? "hidden" : ""
         }
-          ${isExpanded ? "w-110 -left-96 z-10" : "w-55 -left-64 z-0"}`}
+          ${isExpanded ? "w-110 -left-6 z-10" : "w-55 -left-64 z-0"}`}
       >
         {/* Image Window */}
         <div
