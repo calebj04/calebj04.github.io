@@ -4,18 +4,24 @@ import projects from "../../assets/projects.json";
 
 function Projects() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [showImage, setShowImage] = useState(false);
+  const [showPreview, setShowPreview] = useState(false);
   const [isClosed, setIsClosed] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const handleClose = () => setIsClosed(true);
+  const handleClose = () => {
+    setIsClosed(true);
+    setIsMinimized(false);
+    setIsExpanded(false);
+  };
+  const handleOpen = () => setIsClosed(false);
 
   const handleMinimize = () => {
     if (isExpanded) {
       setIsExpanded(!isExpanded);
+      setIsMinimized(true);
     } else {
-      setIsMinimized(!isMinimized);
+      setIsMinimized(true);
     }
   };
 
@@ -29,7 +35,7 @@ function Projects() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowImage(true);
+      setShowPreview(true);
     }, 800);
 
     return () => clearTimeout(timer);
@@ -54,8 +60,11 @@ function Projects() {
           <h2 className="text-3xl font-bold tracking-tight text-white bg-clip-text drop-shadow-sm">
             {projects[currentIndex].org}
           </h2>
-          <span className="px-3 py-1 bg-white/10 rounded-lg text-[10px] font-mono tracking-wider text-[#ffc1ac] border border-white/5 shadow-inner">
-            {projects[currentIndex].year}
+          <span
+            className="px-3 py-1 bg-white/10 rounded-lg text-[10px] font-mono tracking-wider text-[#ffc1ac] border border-white/5 shadow-inner hover:bg-white/20 cursor-pointer select-none"
+            onClick={handleOpen}
+          >
+            Open Preview
           </span>
         </div>
 
@@ -136,7 +145,7 @@ function Projects() {
         {/* Role Information */}
         <div className="text-right opacity-70 hover:opacity-100 transition-opacity">
           <p className="text-[10px] uppercase tracking-[0.2em] font-mono text-[#ffc1ac] mb-0.5">
-            {projects[currentIndex].stat}
+            Skills Used
           </p>
           <p className="text-sm font-medium tracking-wide text-white drop-shadow-md">
             {projects[currentIndex].pos}
@@ -174,20 +183,20 @@ function Projects() {
         {/* Image Window */}
         <div
           className={`relative bg-white rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden transform transition-all duration-700 hover:scale-[1.02] hover:-rotate-1 ${
-            showImage ? "opacity-100" : "opacity-0"
+            showPreview ? "opacity-100" : "opacity-0"
           }`}
         >
           <div className="group h-6 bg-gray-100 border-b flex items-center px-3 gap-1.5">
             <div
-              className="w-2.5 h-2.5 rounded-full bg-red-400/80 group-hover:bg-red-500"
+              className="w-2.5 h-2.5 rounded-full bg-red-400/80 group-hover:bg-red-500 cursor-pointer"
               onClick={handleClose}
             ></div>
             <div
-              className="w-2.5 h-2.5 rounded-full bg-yellow-400/80 group-hover:bg-yellow-500"
+              className="w-2.5 h-2.5 rounded-full bg-yellow-400/80 group-hover:bg-yellow-500 cursor-pointer"
               onClick={handleMinimize}
             ></div>
             <div
-              className="w-2.5 h-2.5 rounded-full bg-green-400/80 group-hover:bg-green-500"
+              className="w-2.5 h-2.5 rounded-full bg-green-400/80 group-hover:bg-green-500 cursor-pointer"
               onClick={handleExpand}
             ></div>
           </div>
@@ -197,8 +206,8 @@ function Projects() {
                 isMinimized
                   ? "h-0 opacity-0"
                   : isExpanded
-                  ? "h-full opacity-100"
-                  : "h-[137.5px] opacity-100" //weird pixel value because h-full doesn't allow for smooth transitions
+                  ? "h-68.75 opacity-100" //weird pixel value because h-full doesn't allow for smooth transitions
+                  : "h-[137.5px] opacity-100"
               }
             `}
           >
@@ -210,24 +219,24 @@ function Projects() {
             <div className="absolute inset-0 bg-linear-to-t from-black/10 to-transparent pointer-events-none" />
           </div>
         </div>
-        {/* Animated Line */}
-        <div className="absolute -bottom-25 -right-13 w-35 h-40 pointer-events-none -z-10">
-          <svg
-            width="100%"
-            height="100%"
-            viewBox="0 0 140 160"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M 130 140 C 120 80, 30 100, 30 10"
-              stroke="white"
-              strokeWidth="4"
-              strokeLinecap="round"
-              className="drop-shadow-[0_0_3px_rgba(255,255,255,0.5)] animate-path"
-            />
-          </svg>
-        </div>
+      </div>
+      {/* Animated Line */}
+      <div className="absolute bottom-51 -left-31 w-35 h-40 pointer-events-none z-0">
+        <svg
+          width="100%"
+          height="100%"
+          viewBox="0 0 140 160"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M 130 140 C 120 80, 30 100, 30 10"
+            stroke="white"
+            strokeWidth="4"
+            strokeLinecap="round"
+            className="drop-shadow-[0_0_3px_rgba(255,255,255,0.5)] animate-path"
+          />
+        </svg>
       </div>
     </>
   );
