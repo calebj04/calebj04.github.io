@@ -4,6 +4,7 @@
     "year": "CS 444",
     "desc": "Something, idk what to put here yet",
     "title": "Learn Transformers",
+    "img": "/images/projects/LearnTransformers.png",
     "url": "https://github.com/calebj04/LearnTransformers",
     "stat": "Skills Used",
     "pos": "TypeScript, Python, React"
@@ -13,6 +14,7 @@
     "year": "Project w/ a friend",
     "desc": "Something, idk what to put here yet",
     "title": "Brain-Check",
+    "img": "/images/projects/Brain-Check.png",
     "url": "https://github.com/Tofudog/Brain-Check",
     "stat": "Skills Used",
     "pos": "TypeScript, React Native, Python"
@@ -22,6 +24,7 @@
     "year": "Personal Project",
     "desc": "My personal website to showcase my projects and experience.",
     "title": "Personal Website",
+    "img": "/images/projects/PersonalWebsite.png",
     "url": "https://github.com/calebj04/website2",
     "stat": "Skills Used",
     "pos": "TypeScript, React, TailwindCSS"

@@ -5,13 +5,15 @@ type CardProps = {
   title?: ReactNode;
   body?: ReactNode;
   footer?: ReactNode;
+  extension?: ReactNode;
 };
 
-function Card({ title, body, footer }: CardProps) {
+function Card({ title, body, footer, extension }: CardProps) {
   return (
     <div className="w-screen h-screen flex justify-center items-center">
-      <div className="relative w-full max-w-2xl rounded-[2.5rem] overflow-hidden p-8">
-        <div className="absolute inset-0 bg-[linear-gradient(45deg,#121521_0%,#38476b_40%,#b6192e_80%,#ffc1ac_100%)]" />
+      <div className="relative w-full max-w-2xl rounded-[2.5rem] p-8">
+        {extension}
+        <div className="absolute inset-0 bg-[linear-gradient(45deg,#121521_0%,#38476b_40%,#b6192e_80%,#ffc1ac_100%)] rounded-[2.5rem]" />
 
         {/* Content Wrapper */}
         <div className="relative">

@@ -116,7 +116,52 @@ function Projects() {
     </>
   );
 
-  return <Card title={title} body={body} footer={footer} />;
+  const extension: ReactNode = (
+    <>
+      <div className="block absolute -top-12 -left-90 w-[320px] z-0">
+        {/* 1. The Screenshot Card */}
+        <div className="relative bg-white rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden transform transition-all duration-700 hover:scale-[1.02] hover:-rotate-1">
+          <div className="h-6 bg-gray-100 border-b flex items-center px-3 gap-1.5">
+            <div className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
+            <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/80" />
+            <div className="w-2.5 h-2.5 rounded-full bg-green-400/80" />
+          </div>
+          <div className="h-45 w-full bg-gray-50 relative group">
+            <img
+              src={projects[currentIndex].img}
+              alt="Project Preview"
+              className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+            />
+            <div className="absolute inset-0 bg-linear-to-t from-black/10 to-transparent pointer-events-none" />
+          </div>
+        </div>
+
+        <div className="absolute -bottom-25 -right-13 w-35 h-40 pointer-events-none -z-10">
+          <svg
+            width="100%"
+            height="100%"
+            viewBox="0 0 140 160"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M 30 10 C 30 100, 120 80, 130 140"
+              stroke="white"
+              strokeWidth="4"
+              strokeLinecap="round"
+              className="drop-shadow-[0_0_3px_rgba(255,255,255,0.5)]"
+            />
+            {/* Start Dot */}
+            <circle cx="30" cy="10" r="4" fill="white" />
+          </svg>
+        </div>
+      </div>
+    </>
+  );
+
+  return (
+    <Card title={title} body={body} footer={footer} extension={extension} />
+  );
 }
 
 export default Projects;
