@@ -13,6 +13,7 @@ function Projects() {
     setIsClosed(true);
     setIsMinimized(false);
     setIsExpanded(false);
+    setShowPreview(false);
   };
   const handleOpen = () => setIsClosed(false);
 
@@ -35,11 +36,11 @@ function Projects() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowPreview(true);
-    }, 800);
+      setShowPreview(!isClosed);
+    }, 100);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [isClosed]);
 
   const title: ReactNode = (
     <>
@@ -157,33 +158,17 @@ function Projects() {
 
   const extension: ReactNode = (
     <>
-      <style>
-        {`
-    @keyframes drawAndErase {
-      0% { 
-        stroke-dashoffset: 400; 
-      }
-      100% { 
-        stroke-dashoffset: -400; 
-      }
-    }
-    .animate-path {
-      stroke-dasharray: 400;
-      animation: drawAndErase 3s ease-in-out forwards; 
-    }
-  `}
-      </style>
       {/* Project Preview */}
       <div
-        className={`block absolute w-55 -left-64 -top-12 transition-all duration-500 ease-in-out z-10 ${
-          isClosed ? "hidden" : ""
-        }
+        className={`block absolute w-55 -left-64 -top-12 transition-all duration-500 ease-in-out z-10
           ${isExpanded ? "w-110 -left-6" : "w-55 -left-64"}`}
       >
         {/* Image Window */}
         <div
-          className={`relative bg-white rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden transform transition-all duration-700 hover:scale-[1.02] hover:-rotate-1 ${
-            showPreview ? "opacity-100" : "opacity-0"
+          className={`relative bg-white rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden transform transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] origin-bottom-right hover:scale-[1.02] hover:-rotate-1 ${
+            showPreview
+              ? "opacity-100 scale-100 translate-y-0"
+              : "opacity-0 scale-50 translate-y-10"
           }`}
         >
           <div className="group h-6 bg-gray-100 border-b flex items-center px-3 gap-1.5">
@@ -206,7 +191,7 @@ function Projects() {
                 isMinimized
                   ? "h-0 opacity-0"
                   : isExpanded
-                  ? "h-68.75 opacity-100" //weird pixel value because h-full doesn't allow for smooth transitions
+                  ? "h-68.75 opacity-100"
                   : "h-[137.5px] opacity-100"
               }
             `}
@@ -219,24 +204,6 @@ function Projects() {
             <div className="absolute inset-0 bg-linear-to-t from-black/10 to-transparent pointer-events-none" />
           </div>
         </div>
-      </div>
-      {/* Animated Line */}
-      <div className="absolute bottom-51 -left-31 w-35 h-40 pointer-events-none z-0">
-        <svg
-          width="100%"
-          height="100%"
-          viewBox="0 0 140 160"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M 130 140 C 120 80, 30 100, 30 10"
-            stroke="white"
-            strokeWidth="4"
-            strokeLinecap="round"
-            className="drop-shadow-[0_0_3px_rgba(255,255,255,0.5)] animate-path"
-          />
-        </svg>
       </div>
     </>
   );
