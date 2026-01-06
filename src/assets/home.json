@@ -1,0 +1,31 @@
+{
+  "roles": [
+    {
+      "image": "/images/home/web-programming.png",
+      "alt": "Web Programming Icon",
+      "title": "Full-Stack Developer",
+      "desc": "Worked for Project Emory"
+    },
+    {
+      "image": "/images/home/neural-net.png",
+      "alt": "Neural Network Icon",
+      "title": "Machine Learning Engineer",
+      "desc": "Completed Machine Learning, Deep Learning, & Data Mining"
+    },
+    {
+      "image": "/images/home/piano.png",
+      "alt": "Piano Icon",
+      "title": "Piano Composer",
+      "text": "Listen to me on Spotify"
+    }
+  ],
+  "socials": [
+    { "title": "github", "url": "https://github.com/calebj04" },
+    {
+      "title": "linkedin",
+      "url": "https://www.linkedin.com/in/caleb-jennings-a1567a255/"
+    },
+    { "title": "email", "url": "mailto:calebbirtch.j@gmail.com" },
+    { "title": "resume", "url": "/Caleb_Jennings_Resume.pdf" }
+  ]
+}

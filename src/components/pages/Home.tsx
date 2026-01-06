@@ -1,5 +1,6 @@
 import { useState, type ReactNode } from "react";
 import Card from "../Card";
+import home from "../../assets/home.json";
 
 function Home() {
   const [activeRole, setActiveRole] = useState<number | null>(null);
@@ -8,26 +9,8 @@ function Home() {
     setActiveRole(activeRole === index ? null : index);
   };
 
-  const roles = [
-    {
-      image: "/images/home/web-programming.png",
-      alt: "Web Programming Icon",
-      title: "Full-Stack Developer",
-      text: "Worked for Project Emory",
-    },
-    {
-      image: "/images/home/neural-net.png",
-      alt: "Neural Network Icon",
-      title: "Machine Learning Engineer",
-      text: "Completed Machine Learning, Deep Learning, & Data Mining",
-    },
-    {
-      image: "/images/home/piano.png",
-      alt: "Piano Icon",
-      title: "Piano Composer",
-      text: "Listen to me on Spotify",
-    },
-  ];
+  const roles = home.roles;
+  const socials = home.socials;
 
   const title: ReactNode = (
     <>
@@ -78,7 +61,7 @@ function Home() {
             border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] rounded-2xl"
               >
                 <div className="h-full flex items-center text-lg font-medium whitespace-nowrap p-1">
-                  {role.text}
+                  {role.desc}
                 </div>
               </div>
             </div>
@@ -126,13 +109,15 @@ function Home() {
       <span className="text-xs text-white/40 font-light">Atlanta, GA</span>
 
       <div className="flex gap-4">
-        {["github", "linkedin", "email", "resume"].map((icon) => (
-          <div key={icon} className="group/icon">
-            <img
-              className="h-8 w-8 invert opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer"
-              src={`/images/home/${icon}.png`}
-              alt={icon}
-            />
+        {socials.map((social, index) => (
+          <div key={index} className="group/icon">
+            <a href={social.url} target="_blank">
+              <img
+                className="h-8 w-8 invert opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer"
+                src={`/images/home/${social.title}.png`}
+                alt={social.title}
+              />
+            </a>
           </div>
         ))}
       </div>
