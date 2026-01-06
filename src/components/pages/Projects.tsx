@@ -5,11 +5,32 @@ import projects from "../../assets/projects.json";
 function Projects() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showImage, setShowImage] = useState(false);
+  const [isClosed, setIsClosed] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const handleClose = () => setIsClosed(true);
+
+  const handleMinimize = () => {
+    if (isExpanded) {
+      setIsExpanded(!isExpanded);
+    } else {
+      setIsMinimized(!isMinimized);
+    }
+  };
+
+  const handleExpand = () => {
+    if (isMinimized) {
+      setIsMinimized(!isMinimized);
+    } else {
+      setIsExpanded(!isExpanded);
+    }
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowImage(true);
-    }, 400);
+    }, 800);
 
     return () => clearTimeout(timer);
   }, []);
@@ -129,30 +150,58 @@ function Projects() {
     <>
       <style>
         {`
-          @keyframes drawLine {
-            from { stroke-dashoffset: 400; }
-            to { stroke-dashoffset: 0; }
-          }
-          .animate-path {
-            stroke-dasharray: 400;
-            animation: drawLine 1.5s ease-out forwards;
-          }
-        `}
+    @keyframes drawAndErase {
+      0% { 
+        stroke-dashoffset: 400; 
+      }
+      100% { 
+        stroke-dashoffset: -400; 
+      }
+    }
+    .animate-path {
+      stroke-dasharray: 400;
+      animation: drawAndErase 3s ease-in-out forwards; 
+    }
+  `}
       </style>
-
-      <div className="block absolute -top-12 -left-64 w-55 z-0">
-        {/* 1. The Screenshot Card */}
+      {/* Project Preview */}
+      <div
+        className={`block absolute w-55 -left-64 -top-12 transition-all duration-500 ease-in-out ${
+          isClosed ? "hidden" : ""
+        }
+          ${isExpanded ? "w-110 -left-96 z-10" : "w-55 -left-64 z-0"}`}
+      >
+        {/* Image Window */}
         <div
           className={`relative bg-white rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden transform transition-all duration-700 hover:scale-[1.02] hover:-rotate-1 ${
             showImage ? "opacity-100" : "opacity-0"
           }`}
         >
-          <div className="h-6 bg-gray-100 border-b flex items-center px-3 gap-1.5">
-            <div className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
-            <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/80" />
-            <div className="w-2.5 h-2.5 rounded-full bg-green-400/80" />
+          <div className="group h-6 bg-gray-100 border-b flex items-center px-3 gap-1.5">
+            <div
+              className="w-2.5 h-2.5 rounded-full bg-red-400/80 group-hover:bg-red-500"
+              onClick={handleClose}
+            ></div>
+            <div
+              className="w-2.5 h-2.5 rounded-full bg-yellow-400/80 group-hover:bg-yellow-500"
+              onClick={handleMinimize}
+            ></div>
+            <div
+              className="w-2.5 h-2.5 rounded-full bg-green-400/80 group-hover:bg-green-500"
+              onClick={handleExpand}
+            ></div>
           </div>
-          <div className="h-45 w-full bg-gray-50 relative group">
+          <div
+            className={`w-full bg-gray-50 relative group transition-all duration-500 ease-in-out
+              ${
+                isMinimized
+                  ? "h-0 opacity-0"
+                  : isExpanded
+                  ? "h-full opacity-100"
+                  : "h-[137.5px] opacity-100" //weird pixel value because h-full doesn't allow for smooth transitions
+              }
+            `}
+          >
             <img
               src={projects[currentIndex].img}
               alt="Project Preview"
@@ -161,7 +210,7 @@ function Projects() {
             <div className="absolute inset-0 bg-linear-to-t from-black/10 to-transparent pointer-events-none" />
           </div>
         </div>
-
+        {/* Animated Line */}
         <div className="absolute -bottom-25 -right-13 w-35 h-40 pointer-events-none -z-10">
           <svg
             width="100%"
@@ -176,16 +225,6 @@ function Projects() {
               strokeWidth="4"
               strokeLinecap="round"
               className="drop-shadow-[0_0_3px_rgba(255,255,255,0.5)] animate-path"
-            />
-            {/* Start Dot */}
-            <circle
-              cx="30"
-              cy="10"
-              r="4"
-              fill="white"
-              className={`transition-opacity duration-300 ${
-                showImage ? "opacity-100" : "opacity-0"
-              }`}
             />
           </svg>
         </div>

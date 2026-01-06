@@ -82,14 +82,14 @@ function About() {
   const footer: ReactNode = (
     <>
       <div className="w-full flex justify-between items-end">
-        {/* Link */}
+        {/* Date */}
         <div className="flex gap-1.5 pb-1">
           <p className="flex items-center gap-1 text-sm font-mono tracking-wide text-white opacity-70 hover:opacity-100 transition-opacity">
             {about[currentIndex].date}
           </p>
         </div>
 
-        {/* Role Information */}
+        {/* Description */}
         <div className="text-right opacity-70 hover:opacity-100 transition-opacity">
           <p className="text-[10px] uppercase tracking-[0.2em] font-mono text-[#ffc1ac] mb-0.5">
             Description
