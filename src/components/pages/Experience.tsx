@@ -107,7 +107,7 @@ function Experience() {
     <>
       <div className="w-full flex justify-between items-end">
         {/* Link */}
-        <div className="flex gap-1.5 pb-1">
+        <div className="flex gap-1.5">
           <a
             href={experience[currentIndex].url}
             target="_blank"
@@ -119,7 +119,7 @@ function Experience() {
         </div>
 
         {/* Role Information */}
-        <div className="text-right opacity-70 hover:opacity-100 transition-opacity">
+        <div className="max-[454px]:hidden text-right opacity-70 hover:opacity-100 transition-opacity">
           <p className="text-[10px] uppercase tracking-[0.2em] font-mono text-[#ffc1ac] mb-0.5">
             {experience[currentIndex].stat}
           </p>

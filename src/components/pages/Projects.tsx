@@ -148,7 +148,7 @@ function Projects() {
     <>
       <div className="w-full flex justify-between items-end">
         {/* Link */}
-        <div className="flex gap-1.5 pb-1">
+        <div className="flex gap-1.5">
           <a
             href={projects[currentIndex].url}
             target="_blank"
@@ -159,8 +159,8 @@ function Projects() {
           </a>
         </div>
 
-        {/* Role Information */}
-        <div className="text-right opacity-70 hover:opacity-100 transition-opacity">
+        {/* Skills Used */}
+        <div className="max-[454px]:hidden text-right opacity-70 hover:opacity-100 transition-opacity">
           <p className="text-[10px] uppercase tracking-[0.2em] font-mono text-[#ffc1ac] mb-0.5">
             Skills Used
           </p>
