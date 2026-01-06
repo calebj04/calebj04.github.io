@@ -1,9 +1,18 @@
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import Card from "../Card";
 import projects from "../../assets/projects.json";
 
 function Projects() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showImage, setShowImage] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowImage(true);
+    }, 400);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const title: ReactNode = (
     <>
@@ -118,9 +127,26 @@ function Projects() {
 
   const extension: ReactNode = (
     <>
-      <div className="block absolute -top-12 -left-90 w-[320px] z-0">
+      <style>
+        {`
+          @keyframes drawLine {
+            from { stroke-dashoffset: 400; }
+            to { stroke-dashoffset: 0; }
+          }
+          .animate-path {
+            stroke-dasharray: 400;
+            animation: drawLine 1.5s ease-out forwards;
+          }
+        `}
+      </style>
+
+      <div className="block absolute -top-12 -left-64 w-55 z-0">
         {/* 1. The Screenshot Card */}
-        <div className="relative bg-white rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden transform transition-all duration-700 hover:scale-[1.02] hover:-rotate-1">
+        <div
+          className={`relative bg-white rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden transform transition-all duration-700 hover:scale-[1.02] hover:-rotate-1 ${
+            showImage ? "opacity-100" : "opacity-0"
+          }`}
+        >
           <div className="h-6 bg-gray-100 border-b flex items-center px-3 gap-1.5">
             <div className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
             <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/80" />
@@ -130,7 +156,7 @@ function Projects() {
             <img
               src={projects[currentIndex].img}
               alt="Project Preview"
-              className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+              className="w-full h-full object-cover group-hover:opacity-100 transition-opacity"
             />
             <div className="absolute inset-0 bg-linear-to-t from-black/10 to-transparent pointer-events-none" />
           </div>
@@ -145,14 +171,22 @@ function Projects() {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M 30 10 C 30 100, 120 80, 130 140"
+              d="M 130 140 C 120 80, 30 100, 30 10"
               stroke="white"
               strokeWidth="4"
               strokeLinecap="round"
-              className="drop-shadow-[0_0_3px_rgba(255,255,255,0.5)]"
+              className="drop-shadow-[0_0_3px_rgba(255,255,255,0.5)] animate-path"
             />
             {/* Start Dot */}
-            <circle cx="30" cy="10" r="4" fill="white" />
+            <circle
+              cx="30"
+              cy="10"
+              r="4"
+              fill="white"
+              className={`transition-opacity duration-300 ${
+                showImage ? "opacity-100" : "opacity-0"
+              }`}
+            />
           </svg>
         </div>
       </div>
