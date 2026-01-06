@@ -64,7 +64,7 @@ function Projects() {
             className="px-3 py-1 bg-white/10 rounded-lg text-[10px] font-mono tracking-wider text-[#ffc1ac] border border-white/5 shadow-inner hover:bg-white/20 cursor-pointer select-none"
             onClick={handleOpenClose}
           >
-            {showPreview ? "Close Preview" : "Open Preview"}
+            {!isClosed ? "Close Preview" : "Open Preview"}
           </span>
         </div>
 
