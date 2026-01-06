@@ -18,7 +18,7 @@ function Skills() {
   const body: ReactNode = (
     <div className="flex flex-col h-full justify-center items-center px-6 py-4">
       {/* Skills Grid */}
-      <div className="grid grid-cols-4 gap-x-6 gap-y-8 md:gap-x-10 md:gap-y-10 z-10">
+      <div className="grid grid-cols-4 gap-x-6 gap-y-8 sm:gap-x-10 sm:gap-y-10 z-10">
         {skills.map((skill, index) => (
           <SkillItem
             key={index}

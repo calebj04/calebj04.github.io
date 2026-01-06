@@ -45,7 +45,7 @@ function Home() {
 
   const body: ReactNode = (
     <>
-      <div className="flex flex-col">
+      <div className="flex flex-col rounded-3xl overflow-hidden">
         {roles.map((role, index) => (
           <div
             key={index}

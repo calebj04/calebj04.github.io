@@ -29,7 +29,7 @@ function Card({ title, body, footer, extension }: CardProps) {
           <div className="my-2">
             <div
               className="h-55 bg-linear-to-b from-white/10 to-black/20 backdrop-blur-xl 
-            border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] rounded-3xl overflow-hidden"
+            border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] rounded-3xl"
             >
               {body}
             </div>

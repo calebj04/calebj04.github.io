@@ -55,21 +55,38 @@ function Projects() {
   const body: ReactNode = (
     <>
       <div className="flex flex-col h-full px-6 py-4 group">
-        {/* Header + Year */}
+        {/* Header + Open/Close Button */}
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-3xl font-bold tracking-tight text-white bg-clip-text drop-shadow-sm">
             {projects[currentIndex].org}
           </h2>
-          <span
-            className="px-3 py-1 bg-white/10 rounded-lg text-[10px] font-mono tracking-wider text-[#ffc1ac] border border-white/5 shadow-inner hover:bg-white/20 cursor-pointer select-none"
+          <div
+            className="max-[454px]:hidden group/tooltip px-3 py-1 bg-white/10 rounded-lg text-[10px] font-mono tracking-wider text-[#ffc1ac] border border-white/5 shadow-inner hover:bg-white/20 cursor-pointer select-none"
             onClick={handleOpenClose}
           >
-            {!isClosed ? "Close Preview" : "Open Preview"}
-          </span>
+            <div className="max-sm:hidden">
+              {!isClosed ? "Close Preview" : "Open Preview"}
+            </div>
+            <div className="relative sm:hidden">
+              ...
+              <div
+                className="
+  absolute bottom-full -left-2/1 z-50 mb-3 -translate-x-1/2 whitespace-nowrap
+  rounded-lg bg-linear-to-b from-gray-900 to-gray-800 px-2 py-1 text-xs font-medium text-white 
+  shadow-xl border border-white/10
+  opacity-0 transition-all duration-200 pointer-events-none
+  group-hover/tooltip:opacity-100 group-hover/tooltip:mb-2
+  
+"
+              >
+                Expand window to view preview
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Description */}
-        <div>
+        <div className="overflow-scroll">
           <p className="text-sm md:text-[15px] font-light leading-relaxed text-white/90 border-l-2 border-[#ffc1ac]/50 pl-4">
             {projects[currentIndex].desc}
           </p>

@@ -24,13 +24,28 @@ function Experience() {
           <h2 className="text-3xl font-bold tracking-tight text-white bg-clip-text drop-shadow-sm">
             {experience[currentIndex].org}
           </h2>
-          <span className="px-3 py-1 bg-white/10 rounded-lg text-[10px] font-mono tracking-wider text-[#ffc1ac] border border-white/5 shadow-inner">
-            {experience[currentIndex].year}
-          </span>
+          <div className="max-[454px]:hidden group/tooltip px-3 py-1 bg-white/10 rounded-lg text-[10px] font-mono tracking-wider text-[#ffc1ac] border border-white/5 shadow-inner max-sm:hover:bg-white/20 max-sm:hovercursor-pointer select-none">
+            <div className="max-sm:hidden">{experience[currentIndex].year}</div>
+            <div className="relative sm:hidden">
+              ...
+              <div
+                className="
+  absolute bottom-full -left-2/1 z-50 mb-3 -translate-x-1/2 whitespace-nowrap
+  rounded-lg bg-linear-to-b from-gray-900 to-gray-800 px-2 py-1 text-xs font-medium text-white 
+  shadow-xl border border-white/10
+  opacity-0 transition-all duration-200 pointer-events-none
+  group-hover/tooltip:opacity-100 group-hover/tooltip:mb-2
+  
+"
+              >
+                Expand window to view year
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Description */}
-        <div>
+        <div className="overflow-scroll">
           <p className="text-sm md:text-[15px] font-light leading-relaxed text-white/90 border-l-2 border-[#ffc1ac]/50 pl-4">
             {experience[currentIndex].desc}
           </p>
