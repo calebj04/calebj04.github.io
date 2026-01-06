@@ -67,14 +67,19 @@ function Home() {
                     }
                   `}
           >
-            {/*Swipe Left For More Info*/}
+            {/*Swipe Left*/}
             <div
-              className={`absolute w-0 rounded-2xl -right-18 top-0 bottom-0 bg-[linear-gradient(45deg,#121521_0%,#38476b_40%,#b6192e_80%,#ffc1ac_100%)] z-20 transition-all duration-500 ${
+              className={`absolute w-0 rounded-2xl -right-18 top-0 bottom-0 z-20 transition-all duration-500 ${
                 activeRole === index ? "w-full" : ""
               }`}
             >
-              <div className="h-full flex items-center p-1 text-lg font-medium whitespace-nowrap">
-                {role.text}
+              <div
+                className="h-full w-full  bg-linear-to-b from-white/10 to-black/20 backdrop-blur-xl 
+            border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] rounded-2xl"
+              >
+                <div className="h-full flex items-center text-lg font-medium whitespace-nowrap p-1">
+                  {role.text}
+                </div>
               </div>
             </div>
             {/* Icon Container */}
@@ -88,7 +93,11 @@ function Home() {
 
             {/* Text */}
             <div className="flex flex-col min-w-0">
-              <p className="text-lg font-medium text-white/90 group-hover/item:text-white group-hover/item:translate-x-1 transition-all truncate">
+              <p
+                className={`text-lg font-medium text-white/90 group-hover/item:text-white group-hover/item:translate-x-1 transition-all truncate ${
+                  activeRole === index ? "opacity-0 delay-200 duration-200" : ""
+                }`}
+              >
                 {role.title}
               </p>
             </div>
