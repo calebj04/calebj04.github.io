@@ -24,7 +24,7 @@ export const SkillItem = ({
       className={`
         group/icon flex items-center justify-center
         transition-transform duration-300 hover:scale-110 cursor-pointer
-        ${isAnimating ? "animate-[spin_0.8s_ease-in-out]" : ""}
+        ${isAnimating ? skill.animation : ""} 
       `}
       onAnimationEnd={() => setIsAnimating(false)}
     >

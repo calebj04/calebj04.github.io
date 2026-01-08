@@ -6,3 +6,129 @@
     @apply bg-[#121521] min-h-screen;
   }
 }
+
+/* Custom Animations */
+
+/* React */
+@keyframes spin-once {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-once {
+  animation: spin-once 0.8s ease-in-out;
+}
+
+/* JavaScript */
+@keyframes jello {
+  0%,
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+}
+.animate-jello {
+  animation: jello 0.8s both;
+}
+
+/* HTML */
+@keyframes flip-x-left {
+  0% {
+    transform: perspective(400px) rotateY(-360deg);
+  }
+  100% {
+    transform: perspective(400px) rotateY(0);
+  }
+}
+.animate-flip-x-left {
+  animation: flip-x-left 0.8s ease-in-out;
+}
+
+/* CSS */
+@keyframes flip-x-right {
+  0% {
+    transform: perspective(400px) rotateX(360deg);
+  }
+  100% {
+    transform: perspective(400px) rotateX(0);
+  }
+}
+.animate-flip-x-right {
+  animation: flip-x-right 0.8s ease-in-out;
+}
+
+/* Python */
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(45deg);
+  }
+  75% {
+    transform: rotate(-45deg);
+  }
+}
+.animate-wiggle {
+  animation: wiggle 0.8s ease-in-out;
+}
+
+/* Java */
+@keyframes pour {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-60deg);
+  }
+}
+.animate-pour {
+  animation: pour 0.8s ease-in-out;
+}
+
+/* C */
+@keyframes shrink {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.5);
+  }
+}
+.animate-shrink {
+  animation: shrink 0.8s ease-in-out;
+}
+
+/* R */
+@keyframes expand {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+}
+.animate-expand {
+  animation: expand 0.8s ease-in-out;
+}
