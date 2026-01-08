@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import PageTransition from "./components/PageTransition";
 import "./index.css";
 
@@ -10,18 +10,18 @@ import Projects from "./components/pages/Projects";
 import Skills from "./components/pages/Skills";
 // import About from "./components/pages/About";
 
-const router = createBrowserRouter([
-  { path: "/", element: <Home /> },
-  { path: "/experience", element: <Experience /> },
-  { path: "/projects", element: <Projects /> },
-  { path: "/skills", element: <Skills /> },
-  // { path: "/about", element: <About /> },
-]);
-
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <PageTransition>
-      <RouterProvider router={router} />
+      <HashRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/experience" element={<Experience />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/skills" element={<Skills />} />
+          {/* <Route path="/about" element={<About />} /> */}
+        </Routes>
+      </HashRouter>
     </PageTransition>
   </React.StrictMode>
 );
