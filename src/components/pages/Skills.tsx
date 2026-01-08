@@ -15,10 +15,49 @@ function AnimatedNumber({ value }: { value: number }) {
   return <motion.span>{display}</motion.span>;
 }
 
+function Typewriter({ text }: { text: string }) {
+  const [currentText, setCurrentText] = useState(text);
+
+  useEffect(() => {
+    if (currentText === text) return;
+
+    let commonLength = 0;
+    while (
+      commonLength < currentText.length &&
+      commonLength < text.length &&
+      currentText[commonLength] === text[commonLength]
+    ) {
+      commonLength++;
+    }
+
+    const isDeleting = currentText.length > commonLength;
+
+    const typeSpeed = Math.random() * (100 - 50) + 50;
+    const deleteSpeed = 30;
+
+    const timeout = setTimeout(
+      () => {
+        setCurrentText((prev) => {
+          if (isDeleting) {
+            return prev.slice(0, -1);
+          } else {
+            return text.slice(0, prev.length + 1);
+          }
+        });
+      },
+      isDeleting ? deleteSpeed : typeSpeed
+    );
+
+    return () => clearTimeout(timeout);
+  }, [currentText, text]);
+
+  return <span>{currentText}</span>;
+}
+
 function Skills() {
   const [hoveredSkill, setHoveredSkill] = useState<SkillData | null>(null);
   const currentProf = hoveredSkill ? hoveredSkill.prof : 0;
-  // const currentName = hoveredSkill ? hoveredSkill.name : 0;
+  const currentName = hoveredSkill ? hoveredSkill.name : "Select a skill";
 
   const title: ReactNode = (
     <div className="group flex flex-col">
@@ -79,7 +118,7 @@ function Skills() {
             Technology
           </p>
           <p className="text-sm font-medium tracking-wide text-white drop-shadow-md text-right">
-            {hoveredSkill ? hoveredSkill?.name : "Select a skill"}
+            <Typewriter text={currentName} />
             <span className="inline-block w-0.5 h-4 bg-[#ffc1ac] ml-1 align-middle animate-pulse" />
           </p>
         </div>
