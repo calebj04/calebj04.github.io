@@ -1,9 +1,12 @@
 @import "tailwindcss";
-@plugin "daisyui";
 
 @layer base {
   body {
     @apply bg-[#121521] min-h-screen;
+  }
+
+  html {
+    @apply bg-[#121521];
   }
 }
 

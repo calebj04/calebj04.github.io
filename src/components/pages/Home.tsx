@@ -24,7 +24,7 @@ function Home() {
         </div>
 
         <div className="space-y-1">
-          <h1 className="text-4xl font-light leading-none tracking-tighter drop-shadow-md whitespace-nowrap">
+          <h1 className="text-white text-4xl font-light leading-none tracking-tighter drop-shadow-md whitespace-nowrap">
             Caleb Jennings
           </h1>
           <p className="text-sm font-mono tracking-widest text-[#ffc1ac] uppercase opacity-90">
