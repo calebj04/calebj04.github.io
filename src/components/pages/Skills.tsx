@@ -35,19 +35,33 @@ function Skills() {
     <>
       <div className="w-full flex justify-between items-end">
         {/* Proficiency */}
-        <div className="flex gap-1.5 pb-1">
-          <p className="flex items-center gap-1 text-sm font-mono tracking-wide text-white opacity-70 hover:opacity-100 transition-opacity">
-            Proficiency: {hoveredSkill?.prof ? hoveredSkill?.prof : "--"}%
-          </p>
+        <div className="flex flex-col justify-end w-1/2 pr-4">
+          <div className="flex justify-between items-end mb-1.5">
+            <span className="text-[10px] uppercase tracking-[0.2em] font-mono text-[#ffc1ac] opacity-80">
+              Proficiency
+            </span>
+            <span className="text-sm font-mono text-white opacity-90 tabular-nums text-right">
+              {hoveredSkill?.prof}%
+            </span>
+          </div>
+          <div className="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+            <div
+              className="h-full bg-[#ffc1ac] rounded-full"
+              style={{
+                width: `${hoveredSkill ? hoveredSkill.prof : 0}%`,
+              }}
+            />
+          </div>
         </div>
 
-        {/* Language/Library */}
-        <div className="text-right opacity-70 hover:opacity-100 transition-opacity">
-          <p className="text-[10px] uppercase tracking-[0.2em] font-mono text-[#ffc1ac] mb-0.5">
-            Langauge
+        {/* Technology Name */}
+        <div className="flex flex-col items-end justify-end w-1/2">
+          <p className="text-[10px] uppercase tracking-[0.2em] font-mono text-[#ffc1ac] opacity-80 mb-0.5">
+            Technology
           </p>
-          <p className="text-sm font-medium tracking-wide text-white drop-shadow-md">
-            {hoveredSkill?.name ? hoveredSkill.name : "*Hover over an icon*"}
+          <p className="text-sm font-medium tracking-wide text-white drop-shadow-md text-right">
+            {hoveredSkill?.name}
+            <span className="inline-block w-0.5 h-4 bg-[#ffc1ac] ml-1 align-middle animate-pulse" />
           </p>
         </div>
       </div>
