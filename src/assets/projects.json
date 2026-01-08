@@ -20,7 +20,7 @@
     "desc": "Designed and developed a personal website to explore and apply core web development concepts, including React Router, state management, and Framer Motion for smooth, high-performance animations without unnecessary re-renders. Leveraged Vite for efficient project configuration and Git for version control.",
     "title": "Personal Website",
     "img": "/images/projects/PersonalWebsite.png",
-    "url": "https://github.com/calebj04/website2",
+    "url": "https://github.com/calebj04/calebj04.github.io",
     "pos": "TypeScript, React, TailwindCSS"
   }
 ]
