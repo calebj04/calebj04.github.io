@@ -1,23 +1,23 @@
 [
   {
     "org": "Learn Transformers",
-    "desc": "Something, idk what to put here yet",
+    "desc": "Built an interactive visual web application demonstrating how transformers learn word embeddings and context. Researched transformer mechanisms using the 3Blue1Brown video series, similar projects, and research papers. Presented as the final paper for CS 444: Deep Learning, with ongoing refinements to improve clarity and accuracy.",
     "title": "Learn Transformers",
     "img": "/images/projects/LearnTransformers.png",
     "url": "https://github.com/calebj04/LearnTransformers",
-    "pos": "TypeScript, Python, React"
+    "pos": "TypeScript, React, Deep Learning"
   },
   {
     "org": "Brain-Check",
-    "desc": "Something, idk what to put here yet",
+    "desc": "Currently developing an iOS application with a tongue-in-cheek concept that visualizes “brain cell loss” after hearing something absurd. Implemented the iOS interface in Swift and a Python backend to track and display the data.",
     "title": "Brain-Check",
     "img": "/images/projects/Brain-Check.png",
     "url": "https://github.com/Tofudog/Brain-Check",
-    "pos": "TypeScript, React Native, Python"
+    "pos": "Xcode, Swift, Python"
   },
   {
     "org": "Personal Website",
-    "desc": "My personal website to showcase my projects and experience.",
+    "desc": "Designed and developed a personal website to explore and apply core web development concepts, including React Router, state management, and Framer Motion for smooth, high-performance animations without unnecessary re-renders. Leveraged Vite for efficient project configuration and Git for version control.",
     "title": "Personal Website",
     "img": "/images/projects/PersonalWebsite.png",
     "url": "https://github.com/calebj04/website2",

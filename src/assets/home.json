@@ -4,7 +4,7 @@
       "image": "/images/home/web-programming.png",
       "alt": "Web Programming Icon",
       "title": "Full-Stack Developer",
-      "desc": "Worked for Project Emory"
+      "desc": "Work with Project Emory building for Odyssey "
     },
     {
       "image": "/images/home/neural-net.png",
@@ -16,7 +16,7 @@
       "image": "/images/home/piano.png",
       "alt": "Piano Icon",
       "title": "Piano Composer",
-      "desc": "Listen to me on Spotify"
+      "desc": "Hey, there's more to life than just 1s and 0s, right?"
     }
   ],
   "socials": [
