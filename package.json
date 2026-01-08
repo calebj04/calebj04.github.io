@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://calebj04/calebj04.github.io",
+  "homepage": "https://calebj04.github.io",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
