@@ -1,10 +1,24 @@
-import { useState, type ReactNode } from "react";
+import { useState, useEffect, type ReactNode } from "react";
+import { motion, useSpring, useTransform } from "framer-motion";
 import { skills, type SkillData } from "../../assets/skills";
 import { SkillItem } from "../SkillItem";
 import Card from "../Card";
 
+function AnimatedNumber({ value }: { value: number }) {
+  const spring = useSpring(value, { mass: 0.8, stiffness: 75, damping: 15 });
+  const display = useTransform(spring, (current) => Math.round(current));
+
+  useEffect(() => {
+    spring.set(value);
+  }, [value, spring]);
+
+  return <motion.span>{display}</motion.span>;
+}
+
 function Skills() {
   const [hoveredSkill, setHoveredSkill] = useState<SkillData | null>(null);
+  const currentProf = hoveredSkill ? hoveredSkill.prof : 0;
+  // const currentName = hoveredSkill ? hoveredSkill.name : 0;
 
   const title: ReactNode = (
     <div className="group flex flex-col">
@@ -41,14 +55,19 @@ function Skills() {
               Proficiency
             </span>
             <span className="text-sm font-mono text-white opacity-90 tabular-nums text-right">
-              {hoveredSkill?.prof}%
+              <AnimatedNumber value={currentProf} />%
             </span>
           </div>
           <div className="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
-            <div
+            <motion.div
               className="h-full bg-[#ffc1ac] rounded-full"
-              style={{
-                width: `${hoveredSkill ? hoveredSkill.prof : 0}%`,
+              initial={{ width: 0 }}
+              animate={{ width: `${currentProf}%` }}
+              transition={{
+                type: "spring",
+                mass: 0.8,
+                stiffness: 75,
+                damping: 15,
               }}
             />
           </div>
@@ -60,7 +79,7 @@ function Skills() {
             Technology
           </p>
           <p className="text-sm font-medium tracking-wide text-white drop-shadow-md text-right">
-            {hoveredSkill?.name}
+            {hoveredSkill ? hoveredSkill?.name : "Select a skill"}
             <span className="inline-block w-0.5 h-4 bg-[#ffc1ac] ml-1 align-middle animate-pulse" />
           </p>
         </div>
