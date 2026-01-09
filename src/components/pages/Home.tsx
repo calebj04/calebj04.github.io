@@ -52,7 +52,7 @@ function Home() {
           >
             {/*Swipe Left*/}
             <div
-              className={`absolute w-0 rounded-2xl -right-18 top-0 bottom-0 z-20 transition-all duration-500 ${
+              className={`text-white absolute w-0 rounded-2xl -right-18 top-0 bottom-0 z-20 transition-all duration-500 ${
                 activeRole === index ? "w-full" : ""
               }`}
             >
