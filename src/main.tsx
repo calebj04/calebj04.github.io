@@ -12,8 +12,8 @@ import Skills from "./components/pages/Skills";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <PageTransition>
-      <HashRouter>
+    <HashRouter>
+      <PageTransition>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/experience" element={<Experience />} />
@@ -21,7 +21,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
           <Route path="/skills" element={<Skills />} />
           {/* <Route path="/about" element={<About />} /> */}
         </Routes>
-      </HashRouter>
-    </PageTransition>
+      </PageTransition>
+    </HashRouter>
   </React.StrictMode>
 );
