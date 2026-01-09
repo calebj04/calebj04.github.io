@@ -177,7 +177,7 @@ function Projects() {
       {/* Project Preview */}
       <div
         className={`block absolute w-55 -left-64 -top-12 transition-all duration-500 ease-in-out z-10
-          ${isExpanded ? "w-110 -left-6" : "w-55 -left-64"}`}
+          ${isExpanded ? "w-165 -left-6" : "w-55 -left-64"}`}
       >
         {/* Image Window */}
         <div
@@ -207,7 +207,7 @@ function Projects() {
                 isMinimized
                   ? "h-0 opacity-0"
                   : isExpanded
-                  ? "h-68.75 opacity-100"
+                  ? "h-[412.5px] opacity-100"
                   : "h-[137.5px] opacity-100"
               }
             `}
@@ -215,7 +215,8 @@ function Projects() {
             <img
               src={projects[currentIndex].img}
               alt="Project Preview"
-              className="w-full h-full object-cover group-hover:opacity-100 transition-opacity"
+              className="w-full h-full object-cover group-hover:opacity-100 transition-opacity cursor-pointer"
+              onClick={handleExpand}
             />
             <div className="absolute inset-0 bg-linear-to-t from-black/10 to-transparent pointer-events-none" />
           </div>
