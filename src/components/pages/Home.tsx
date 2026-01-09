@@ -52,15 +52,15 @@ function Home() {
           >
             {/*Swipe Left*/}
             <div
-              className={`text-white absolute w-0 rounded-2xl -right-18 top-0 bottom-0 z-20 transition-all duration-500 ${
-                activeRole === index ? "w-full" : ""
+              className={`text-white w-full absolute rounded-2xl -right-18 top-0 bottom-0 z-20 transition-all duration-500 ${
+                activeRole === index ? "translate-x-0" : "translate-x-full"
               }`}
             >
               <div
-                className="h-full w-full  bg-linear-to-b from-white/10 to-black/20 backdrop-blur-xl 
+                className="h-full w-full bg-linear-to-b from-white/10 to-black/20 backdrop-blur-xl 
             border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] rounded-2xl"
               >
-                <div className="h-full flex items-center text-lg font-medium whitespace-nowrap p-1">
+                <div className="h-full w-3/4 flex items-center text-lg font-medium sm:whitespace-nowrap p-1">
                   {role.desc}
                 </div>
               </div>
